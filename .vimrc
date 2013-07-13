@@ -1,0 +1,1 @@
+/home/genadyp/_vimrc
