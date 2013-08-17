@@ -62,19 +62,62 @@ Bundle 'beloglazov/vim-online-thesaurus'
   "vim-online-thesaurus : A Vim plugin for looking up words in an online thesaurus
   "http://www.vim.org/scripts/script.php?script_id=4588
   "https://github.com/beloglazov/vim-online-thesaurus
+Bundle 'xolox/vim-notes'
+  "notes.vim : Easy note taking in Vim
+  "http://www.vim.org/scripts/script.php?script_id=3375
+  "http://github.com/xolox/vim-notes
+Bundle 'bling/vim-airline'
+  "vim-airline : lean & mean statusline that's light as air 
+  "http://www.vim.org/scripts/script.php?script_id=4661
+  "https://github.com/bling/vim-airline
+"Bundle 'Lokaltog/powerline'
+  "vim-powerline : The ultimate vim statusline utility
+  "http://www.vim.org/scripts/script.php?script_id=3881
+  "https://github.com/Lokaltog/powerline
+"Bundle 'DiffGoFile'
+  "DiffGoFile : Jump to file from diff output
+  "http://www.vim.org/scripts/script.php?script_id=1888
+Bundle 'arecarn/crunch'
+  "Crunch : An easier way to perform calculations inside Vim 
+  "http://www.vim.org/scripts/script.php?script_id=4686
+  "https://github.com/arecarn/crunch
+ 
+
 
 "---- Motion
 Bundle 'tpope/vim-surround'
   "surround.vim: quoting/parenthesizing made simple
   "https://github.com/tpope/vim-surround
   "http://www.vim.org/scripts/script.php?script_id=1697
-Bundle 'AutoClose'
+"Bundle 'AutoClose'
   "AutoClose : Inserts matching bracket, paren, brace or quote 
   "http://www.vim.org/scripts/script.php?script_id=1849
+Bundle 'jiangmiao/auto-pairs'
+  "Auto Pairs : Insert or delete brackets, parens, quotes in pair
+  "http://www.vim.org/scripts/script.php?script_id=3599
+  "https://github.com/jiangmiao/auto-pairs
 "Bundle 'amdt/vim-niji'
   "vim-niji : Yet another rainbow parentheses plugin.
   "http://www.vim.org/scripts/script.php?script_id=4580
   "https://github.com/amdt/vim-niji
+Bundle 'Yggdroot/indentLine'
+  "indentLine.vim : An indent guides plugin displaying thin vertical lines. 
+  "http://www.vim.org/scripts/script.php?script_id=4354
+  "https://github.com/Yggdroot/indentLine
+Bundle 'matze/vim-move'
+  "move : vim-move moves single lines and selected text up and down 
+  "http://www.vim.org/scripts/script.php?script_id=4687
+  "https://github.com/matze/vim-move
+Bundle 'kien/ctrlp.vim'  
+  "ctrlp.vim : Fuzzy file, buffer, mru, tag, ... finder with regexp support.
+  "http://www.vim.org/scripts/script.php?script_id=3736
+  "https://github.com/kien/ctrlp.vim
+Bundle 'tacahiroy/ctrlp-funky'
+  "ctrlp-funky : Jumps to a function definition via ctrlp.vim interface 
+  "http://www.vim.org/scripts/script.php?script_id=4592
+  "https://github.com/tacahiroy/ctrlp-funky
+  
+
 
 "---- Syntax
 "Bundle 'Rykka/riv.vim'
@@ -91,6 +134,17 @@ Bundle 'dmcinnes/ruby_single_test'
   "Ruby Single Test : Runs a single Ruby test under the cursor 
   "https://github.com/dmcinnes/ruby_single_test
   "http://www.vim.org/scripts/script.php?script_id=2869
+Bundle 'TeX-9'
+  "TeX 9 : A semi-automatic LaTeX ftplugin with lots of firepower! 
+  "http://www.vim.org/scripts/script.php?script_id=3508
+Bundle 'LaTeX-Box-Team/LaTeX-Box'
+  "LaTeX Box : Lightweight Toolbox for LaTeX 
+  "http://www.vim.org/scripts/script.php?script_id=3109
+  "https://github.com/LaTeX-Box-Team/LaTeX-Box
+Bundle 'bash-support.vim'  
+  "bash-support.vim : BASH IDE -- Write and run BASH-scripts using menus and hotkeys.
+  "http://www.vim.org/scripts/script.php?script_id=365
+  
 
 
 "---- Version Control
@@ -226,6 +280,11 @@ function TexAbbs()
   iab <buffer> B $\mathcal{B}$
   iab <buffer> C $\mathcal{C}$
   iab <buffer> G $\mathcal{G}$
+  iab <buffer> F $\mathcal{F}$
+  iab <buffer> Hs $\mathcal{H}_s$
+  iab <buffer> newHs $\hat{\mathcal{H}_s}$
+  iab <buffer> Fs $\mathcal{F}_s$
+  iab <buffer> newFs $\hat{\mathcal{F}_s}$
   iab <buffer> eps $\varepsilon$
   iab <buffer> pi $\pi$
   iab <buffer> Ui $U_i$
@@ -242,7 +301,7 @@ function TexAbbs()
   iab <buffer> p2 $p_2$
   iab <buffer> ei $e_i$
   iab <buffer> e1 $e_1$
-  iab <buffer> e2 $e_2$  
+  iab <buffer> e2 $e_2$
   iab <buffer> Ni $N_i$
   iab <buffer> N0 $N_0$
   iab <buffer> N1 $N_1$
@@ -250,6 +309,7 @@ function TexAbbs()
   iab <buffer> ni $n_i$
   iab <buffer> n1 $n_1$
   iab <buffer> n2 $n_2$
+  iab <buffer> __ \\ \hspace*{1em} 
   "iab <buffer> U_i $U_i$
   "iab <buffer> U_1 $U_1$
   "iab <buffer> U_2 $U_2$
