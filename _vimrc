@@ -4,6 +4,16 @@ set nocompatible
 "----------------------------------------------------------------------"
 filetype off                   " required!
 
+"Use arrow keys
+map <Up> k
+map <Down> j
+map <Left> h
+map <Right> l
+xmap <Up> k
+xmap <Down> j
+xmap <Left> h
+xmap <Right> l
+
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
@@ -211,6 +221,15 @@ Bundle 'jiangmiao/auto-pairs'
   "ctrlp-funky : Jumps to a function definition via ctrlp.vim interface 
   "http://www.vim.org/scripts/script.php?script_id=4592
   "https://github.com/tacahiroy/ctrlp-funky
+Bundle 'vim-scripts/textmanip.vim'
+  "textmanip.vim : Maniplate(duplicate, move) selected text easily 
+  "https://github.com/vim-scripts/textmanip.vim
+  "https://github.com/t9md/vim-textmanip
+  "http://www.vim.org/scripts/script.php?script_id=3491
+  xmap <C-j> <Plug>(textmanip-move-down-r)
+  xmap <C-k> <Plug>(textmanip-move-up-r)
+  xmap <C-h> <Plug>(textmanip-move-left)
+  xmap <C-l> <Plug>(textmanip-move-right)
 Bundle 'catalinciurea/perl-nextmethod'
   "perl-nextmethod : ]m, ]M, [m, [M next/previous perl method motions
   "http://www.vim.org/scripts/script.php?script_id=4697
@@ -579,12 +598,6 @@ autocmd FilterWritePre  *.{cpp,h,c,rb,java}  call StripTrailingWhite()
 map <C-s> :call StripTrailingWhite() \| retab \| w<CR>
 map! <C-s> :call StripTrailingWhite() \| retab \| w<CR>
 imap <C-s> <C-\><C-O><C-s>
-
-"Use arrow keys
-map <Up> k
-map <Down> j
-map <Left> h
-map <Right> l
 
 "Switch between Vim window splits easily
 "nmap <silent> <C-Up> :wincmd k<CR>
