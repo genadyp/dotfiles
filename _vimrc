@@ -21,11 +21,9 @@ call vundle#rc()
 " required!
 Bundle 'gmarik/vundle'
 
-
 "-- My Bundles here:
 Bundle 'scrooloose/nerdcommenter'
   "plugin that allows for easy commenting of code for many filetypes
-  "Bundle 'The NERD Commenter'
   map <leader>ca{ va{ \| <leader>cc
   map <leader>c% v% \| <leader>cc
 Bundle 'scrooloose/nerdtree'
@@ -72,10 +70,6 @@ Bundle 'LanguageTool'
   "vim-multiple-cursors : True Sublime Text style multiple selections for Vim
   "https://github.com/terryma/vim-multiple-cursors
   "http://www.vim.org/scripts/script.php?script_id=4523
-"Bundle 'scrooloose/syntastic'
-  "Syntastic : Automatic syntax checking
-  "https://github.com/scrooloose/syntastic
-  "http://www.vim.org/scripts/script.php?script_id=2736
 "Bundle 'easytags.vim'
   "easytags.vim : Automated tag file generation and syntax highlighting of tags in Vim
   "http://www.vim.org/scripts/script.php?script_id=3114
@@ -159,6 +153,29 @@ Bundle 'vim-scripts/TaskList.vim'
   " to overwrite use:
   " let g:tlRememberPosition = 1
   " in your vimrc file
+Bundle 'highlight.vim'
+  " Line mode
+  " <C-h><C-h>   Highlight current line
+  " <C-h><C-a>   Advance color for next line highlight
+  " <C-h><C-r>   Clear last line highlight
+  "Pattern mode
+  " <C-h><C-w>   Highlight word under cursor (whole word match)
+  " <C-h><C-l>    Highlight all lines having word under cursor (whole word match)
+  " <C-h><C-f>    Highlight word under cursor (partial word match)
+  " <C-h><C-k>   Highlight all lines having word under cursor (partial word match)
+  " <C-h><C-s>   Highlight last search pattern
+  " <C-h><C-j>    Highlight all lines having last search pattern
+  " <C-h><C-d>   Clear last pattern highlight
+  " <C-h><C-n>   Clear all highlights
+  " All above commands work in both normal & insert modes.
+  " <C-h><C-h> also works in visual mode. (Select desired lines & hit <C-h><C-h>)
+
+"---- Coding
+Bundle 'vim-scripts/AutoComplPop'
+  " Automatically opens popup menu for completions
+  " http://www.vim.org/scripts/script.php?script_id=1879
+  " To enable perl-completion.vim
+  let g:acp_behaviorPerlOmniLength=0
 
 "---- Motion
 Bundle 'tpope/vim-endwise'
@@ -263,8 +280,6 @@ Bundle 'luochen1990/select-and-search'
   let g:select_and_search_active = 1
 
 "---- Syntax
-
-"---- Syntax
 Bundle 'Specky'
   "Functions to help make behavioral testing easy with ruby and rspec.
 Bundle 'LaTeX-Box-Team/LaTeX-Box'
@@ -346,7 +361,36 @@ Bundle 'ri-viewer'
 "Bundle 'Keithbsmiley/investigate.vim'
   "A Vim plugin for looking up documentation
   "https://github.com/Keithbsmiley/investigate.vim/
+Bundle 'c9s/perlomni.vim'
+  " perl omnicompletion for vim
+  " https://github.com/c9s/perlomni.vim
+Bundle 'scrooloose/syntastic'
+  " Syntax checking hacks for vim
+  " You can see syntastic's idea of available checkers by running :SyntasticInfo
+  " You can also run checkers explicitly by calling :SyntasticCheck <checker>
+  " By default the location list is changed only when you run the :Errors
+  " :SyntasticReset Resets the list of errors and turns off all error notifiers
+  " https://github.com/scrooloose/syntastic
+  " http://www.vim.org/scripts/script.php?script_id=2736
+  map <F2> :SyntasticReset<CR>
+  imap <F2> :SyntasticReset<CR>
 
+  let g:syntastic_html_tidy_exec = '/home/genadyp/Downloads/App/HtmlTidy/tidy/bin/tidy'
+  let g:syntastic_java_checkstyle_classpath = '/home/genadyp/Downloads/App/JavaCheckstyle/checkstyle-5.5/checkstyle-5.5-all.jar'
+  "let let g:syntastic_ruby_exec = 'ruby2.1.1'
+  let g:syntastic_tex_chktex_showmsgs = 0
+  " display together the errors found by all checkers enabled for the current file
+  let g:syntastic_aggregate_errors = 1
+  " To turn off all style messages:
+  " let g:syntastic_quiet_messages = { "type": "style" }
+  " To disable Errors Signs:
+  " let g:syntastic_enable_signs = 0
+
+  let g:syntastic_ruby_checkers = ['mri', 'rubocop', 'rubylint']
+  " This checker runs perl -c against your file. 
+  " This can be a problem if you're trying to check third party files.
+  " https://github.com/scrooloose/syntastic/wiki/Perl%3A---perl
+  let g:syntastic_enable_perl_checker = 1
 
 "---- Version Control
 "Bundle 'airblade/vim-gitgutter'
@@ -609,27 +653,64 @@ function! ToggleBg()
   endif
 endfunc
 
+" Limit a working area with a vertical line
+function SetWorkingArea()
+  if &filetype == 'tex' || &filetype == 'html' || &filetype == 'xml' || &filetype == 'json'
+    set textwidth=100
+  else
+    set textwidth=80
+  endif
+  if exists('+colorcolumn')
+    execute "set colorcolumn=" . join(range(&textwidth+1,335), ',')
+  else
+    set colorcolumn=+1
+  endif
+endfunction
+
+"-- Terminal definitions
+"----------------------------------------------------------------------"
+if $TERM == "xterm-256color" || $TERM == "screen-256color" || $COLORTERM == "gnome-terminal"
+  set t_Co=256
+endif
+
+" Change cursor shape in different modes
+if !has("gui_running") && $COLORTERM == "gnome-terminal" && has("autocmd")
+  " For the Gnome-Terminal (version 2.26)
+  au VimEnter * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Default/cursor_shape block"
+  au InsertEnter * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Default/cursor_shape ibeam"
+  au InsertLeave * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Default/cursor_shape block"
+  "au VimLeave * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Default/cursor_shape ibeam"
+
+  au VimEnter * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Profile0/cursor_shape block"
+  au InsertEnter * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Profile0/cursor_shape ibeam"
+  au InsertLeave * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Profile0/cursor_shape block"
+  "au VimLeave * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Profile0/cursor_shape ibeam"
+
+  au VimEnter * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Profile1/cursor_shape block"
+  au InsertEnter * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Profile1/cursor_shape ibeam"
+  au InsertLeave * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Profile1/cursor_shape block"
+  "au VimLeave * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Profile1/cursor_shape ibeam"
+elseif $TERM =~ "xterm"
+  let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+  let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+endif
+
 "-- Custom definitions --"
 "----------------------------------------------------------------------"
-
-
 " set current working directory to home directory
 cd
 
 syntax on
 
-"Toggle background
+" Toggle background
 ca tbg call ToggleBg()
 
-if $TERM == "xterm-256color" || $TERM == "screen-256color" || $COLORTERM == "gnome-terminal"
-  set t_Co=256
-endif
 
 "--- Search
-"set ignorecase " ignore case when searching
-"set smartcase " ignore case if search pattern is all lowercase, case-sensitive otherwise
-"set hlsearch " highlight search terms
-"set incsearch " show search matches as you type
+"set ignorecase  " ignore case when searching
+set smartcase  " ignore case if search pattern is all lowercase, case-sensitive otherwise
+"set hlsearch  " highlight search terms
+"set incsearch  " show search matches as you type
 
 "--- History
 "set history=1000 " remember more commands and search history
@@ -645,8 +726,10 @@ nnoremap * :set hls<CR>:exec "let @/='\\<".expand("<cword>")."\\>'"<CR>
 :imap jj <esc>
 
 set shiftwidth=2 tabstop=2 expandtab smartindent cindent
-set textwidth=100
-set colorcolumn=100
+
+" Limit a working area with a vertical line
+autocmd BufNewFile,BufRead *.* call SetWorkingArea()
+
 "Line numbers
 set nu
 "To prevent problems while running on Linux scripts edited on Windows
@@ -756,7 +839,6 @@ imap <C-D> <Esc>ddi
 set completeopt=longest,menuone
 
 "Automatically change the current directory
-"set autochdir
 "Change to [C]urrent [W]orking [D]irectory
 map <leader>cd :cd %:p:h<CR>
 command CWD cd %:p:h
@@ -770,13 +852,13 @@ imap <C-S-Left> <ESC>:bprevious<CR>
 " Remove the Windows ^M - when the encodings gets messed up
 "noremap <Leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
 
-
 au! BufRead,BufNewFile *.tex set filetype=tex
 augroup TeX
     autocmd!
     autocmd BufNewFile,BufRead *.tex call TexAbbs()
     autocmd BufNewFile,BufRead *.tex setlocal spell!
     autocmd BufNewFile,BufRead *.tex silent exe "cd " . g:main_tex_dir
+    autocmd BufNewFile,BufRead *.tex call SetWorkingArea()
     au Filetype tex let b:AutoPairs = {"$": "$"}
 augroup END
 
