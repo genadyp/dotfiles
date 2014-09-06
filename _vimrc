@@ -47,7 +47,14 @@ Bundle 'vim-scripts/upAndDown'
 "Bundle 'FavEx'
   "Favorite file and directory explorer
 Bundle 'minibufexpl.vim'
+  "Bundle 'fholgado/minibufexpl.vim' "{'name': 'minibuxexpl'}
   "Elegant buffer explorer
+  "hi MBENormal               guifg=#808080 guibg=fg
+  "hi MBEVisibleNormal        guifg=#5DC2D6 guibg=fg
+  "hi MBEChanged              guifg=#CD5907 guibg=fg
+  "hi MBEVisibleChanged       guifg=#F1266F guibg=fg
+  "hi MBEVisibleActiveNormal  guifg=#A6DB29 guibg=fg
+  "hi MBEVisibleActiveChanged guifg=#F1266F guibg=fg
 Bundle 'mru.vim'
   "Plugin to manage Most Recently Used (MRU) files
 Bundle 'ZoomWin'
@@ -169,6 +176,55 @@ Bundle 'highlight.vim'
   " <C-h><C-n>   Clear all highlights
   " All above commands work in both normal & insert modes.
   " <C-h><C-h> also works in visual mode. (Select desired lines & hit <C-h><C-h>)
+Bundle 'junegunn/goyo.vim'
+  " Distraction-free writing in Vim
+  " :Goyo [width]
+  " You might map this to a key combo in your .vimrc like so:
+  " nnoremap <Leader><Space> :Goyo<CR>
+  "Configuration
+       let g:goyo_width=120
+  "    g:goyo_margin_top (default: 4)
+  "    g:goyo_margin_bottom (default: 4)
+  "    g:goyo_linenr (default: 0)
+  "    g:goyo_callbacks ([before_funcref, after_funcref])
+
+  function! Goyo_before()
+    if has('gui_running')
+      " disable MiniBufExp
+      CMiniBufExplorer
+      "MBEClose
+      "wincmd w
+
+      " disable ZoomWin
+      if exists(":ZoomWin")
+        delcommand ZoomWin
+      endif
+      silent! nunmap <Plug>ZoomWin
+
+      " line numbers disabled by default
+      set nu
+    endif
+
+    " set full screen
+    call EnableFullScreen()
+  endfunction
+
+  function! Goyo_after()
+    if has('gui_running')
+      " enable MiniBufExp
+      MiniBufExplorer
+
+      " enable ZoomWin
+      if exists("g:loaded_ZoomWinPlugin")
+        command! ZoomWin call ZoomWin()
+        nmap <Plug>ZoomWin call ZoomWin()
+      endif
+    endif
+
+    " unset full screen
+    call DisableFullScreen()
+  endfunction
+  let g:goyo_callbacks = [function('Goyo_before'), function('Goyo_after')]
 
 "---- Coding
 Bundle 'vim-scripts/AutoComplPop'
@@ -245,10 +301,10 @@ Bundle 'vim-scripts/textmanip.vim'
   "https://github.com/vim-scripts/textmanip.vim
   "https://github.com/t9md/vim-textmanip
   "http://www.vim.org/scripts/script.php?script_id=3491
-  xmap <C-j> <Plug>(textmanip-move-down-r)
-  xmap <C-k> <Plug>(textmanip-move-up-r)
-  xmap <C-h> <Plug>(textmanip-move-left)
-  xmap <C-l> <Plug>(textmanip-move-right)
+  xmap <S-j> <Plug>(textmanip-move-down-r)
+  xmap <S-k> <Plug>(textmanip-move-up-r)
+  xmap <S-h> <Plug>(textmanip-move-left)
+  xmap <S-l> <Plug>(textmanip-move-right)
 "Bundle 'goldfeld/vim-seek'
   "Seek makes navigating long lines effortless, acting like f but taking two characters.
   "Seek is a vim plugin that aims to be your go-to characterwise motion workhorse.
@@ -278,6 +334,13 @@ Bundle 'luochen1990/select-and-search'
   "https://github.com/luochen1990/select-and-search
   "http://www.vim.org/scripts/script.php?script_id=4819
   let g:select_and_search_active = 1
+Bundle 'gcmt/wildfire.vim'
+  "Smart selection of the closest text object
+  "https://github.com/gcmt/wildfire.vim
+  " This selects the next closest text object.
+  "let g:wildfire_fuel_map = "<ENTER>"
+  " This selects the previous closest text object.
+  "let g:wildfire_water_map = "<BS>"
 
 "---- Syntax
 Bundle 'Specky'
@@ -364,6 +427,19 @@ Bundle 'ri-viewer'
 Bundle 'c9s/perlomni.vim'
   " perl omnicompletion for vim
   " https://github.com/c9s/perlomni.vim
+"Bundle 'pjcj/vim-hl-var'
+  " Highlight all instances of the Perl variable under the cursor.
+  " The variables will be highlighted after you have not performed any action for a certain length of time.
+  " That time is controlled by the updatetime setting.
+  " You can customise the highlighting applied by this plugin by using the hlvarhl global variable.
+  " This can be set in your .vimrc file:
+  " let g:hlvarhl="ctermbg=black ctermfg=red guifg=#ff0000 guibg=#000000 gui=bold"
+  " If you don't want the variable under cursor to be highlighted,
+  " you can disable it by setting variable g:hlvarcurrent to 1.
+  " let g:hlvarcurrent = 1
+  "set updatetime=500
+"Bundle 'genadyp/vawa.vim'
+  " Highlight all instances of the Perl variable under the cursor.
 Bundle 'scrooloose/syntastic'
   " Syntax checking hacks for vim
   " You can see syntastic's idea of available checkers by running :SyntasticInfo
@@ -375,10 +451,9 @@ Bundle 'scrooloose/syntastic'
   map <F2> :SyntasticReset<CR>
   imap <F2> :SyntasticReset<CR>
 
-  let g:syntastic_html_tidy_exec = '/home/genadyp/Downloads/App/HtmlTidy/tidy/bin/tidy'
-  let g:syntastic_java_checkstyle_classpath = '/home/genadyp/Downloads/App/JavaCheckstyle/checkstyle-5.5/checkstyle-5.5-all.jar'
-  "let let g:syntastic_ruby_exec = 'ruby2.1.1'
-  let g:syntastic_tex_chktex_showmsgs = 0
+  let g:syntastic_mode_map = { 'mode': 'active',
+                               \ 'passive_filetypes': ['tex'] }
+
   " display together the errors found by all checkers enabled for the current file
   let g:syntastic_aggregate_errors = 1
   " To turn off all style messages:
@@ -386,11 +461,18 @@ Bundle 'scrooloose/syntastic'
   " To disable Errors Signs:
   " let g:syntastic_enable_signs = 0
 
+  let g:syntastic_html_tidy_exec = '/home/genadyp/Downloads/App/HtmlTidy/tidy/bin/tidy'
+  let g:syntastic_java_checkstyle_classpath = '/home/genadyp/Downloads/App/JavaCheckstyle/checkstyle-5.5/checkstyle-5.5-all.jar'
+  "let let g:syntastic_ruby_exec = 'ruby2.1.1'
+  let g:syntastic_tex_chktex_showmsgs = 0
+
   let g:syntastic_ruby_checkers = ['mri', 'rubocop', 'rubylint']
-  " This checker runs perl -c against your file. 
+  " This checker runs perl -c against your file.
   " This can be a problem if you're trying to check third party files.
   " https://github.com/scrooloose/syntastic/wiki/Perl%3A---perl
   let g:syntastic_enable_perl_checker = 1
+  " Perl checkers must be added manually when enabling Perl checking
+  let g:syntastic_perl_checkers = ['perl', 'podchecker']
 
 "---- Version Control
 "Bundle 'airblade/vim-gitgutter'
@@ -527,7 +609,13 @@ Bundle '29decibel/codeschool-vim-theme'
 Bundle 'vim-scripts/darktango.vim'
 Bundle 'jpo/vim-railscasts-theme'
 Bundle 'reedes/vim-colors-pencil'
-
+Bundle 'romainl/Apprentice'
+Bundle 'jeetsukumaran/vim-nefertiti'
+  "Three commands are provided to control the brightness levels:
+  ":MochalatteBrighten, :MochalatteDarken, and MochalatteReset.
+  "By default, META-2 (ALT-2 on some keyboards) increases the brightness of the text
+  "while META-1 (ALT-1 on some keyboards) decreases the brightness of text.
+  "These key-mappings can be suppressed and or customized:
 
 "---- To Install
 "Bundle 'hotchpotch/perldoc-vim'
@@ -583,19 +671,46 @@ function! StripTrailingWhite()
     call winrestview(l:winview)
 endfunction
 
+function EnableFullScreen()
+  if &go =~ 'e'
+    exec('silent !wmctrl -r :ACTIVE: -b add,fullscreen')
+    exec('set go-=e')
+  endif
+endfunction
+
+function DisableFullScreen()
+  if &go !~ 'e'
+    exec('silent !wmctrl -r :ACTIVE: -b remove,fullscreen')
+    exec('set go+=e')
+  endif
+endfunction
+
+function ToggleFullScreen()
+  if &go =~ 'e'
+    exec('silent !wmctrl -r :ACTIVE: -b add,fullscreen')
+    exec('set go-=e')
+  else
+    exec('silent !wmctrl -r :ACTIVE: -b remove,fullscreen')
+    exec('set go+=e')
+  endif
+endfunction
+
 function TexAbbs()
-  iab <buffer> L $\mathcal{L}$
+  iab <buffer> L $\mathcal{L}$($P_1$,$P_2$)
+  iab <buffer> Lstar $\mathcal{L}^*$($P_1$,$P_2$)
   iab <buffer> H $\mathcal{H}$
   iab <buffer> W $\mathcal{W}$
   iab <buffer> S $\mathcal{S}$
   iab <buffer> B $\mathcal{B}$
   iab <buffer> C $\mathcal{C}$
   iab <buffer> G $\mathcal{G}$
+  iab <buffer> newG $\hat{\mathcal{G}}$
   iab <buffer> F $\mathcal{F}$
   iab <buffer> Hs $\mathcal{H}_s$
   iab <buffer> newHs $\hat{\mathcal{H}_s}$
   iab <buffer> Fs $\mathcal{F}_s$
   iab <buffer> newFs $\hat{\mathcal{F}_s}$
+  iab <buffer> Tl $T_{laminar}$
   iab <buffer> eps $\varepsilon$
   iab <buffer> pi $\pi$
   iab <buffer> phi $\varphi_s$
@@ -620,7 +735,7 @@ function TexAbbs()
   iab <buffer> N1 $N_1$
   iab <buffer> N2 $N_2$
   iab <buffer> N' $N^{'}$
-  iab <buffer> N" $N^{"}$
+  iab <buffer> N" $N^{''}$
   iab <buffer> ni $n_i$
   iab <buffer> n1 $n_1$
   iab <buffer> n2 $n_2$
@@ -667,10 +782,22 @@ function SetWorkingArea()
   endif
 endfunction
 
-"-- Terminal definitions
-"----------------------------------------------------------------------"
+" ========== TERMINAL ===============================================
+" Disable Background Color Erase (BCE) so that color schemes work properly when Vim is used inside tmux and GNU screen.
+if &term =~ '256color'
+set t_ut=
+endif
+
 if $TERM == "xterm-256color" || $TERM == "screen-256color" || $COLORTERM == "gnome-terminal"
   set t_Co=256
+endif
+
+" Tmux will send xterm-style keys when its xterm-keys option is on.
+if &term =~ '^screen'
+  execute "set <xUp>=\e[1;*A"
+  execute "set <xDown>=\e[1;*B"
+  execute "set <xRight>=\e[1;*C"
+  execute "set <xLeft>=\e[1;*D"
 endif
 
 " Change cursor shape in different modes
@@ -695,8 +822,30 @@ elseif $TERM =~ "xterm"
   let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 endif
 
-"-- Custom definitions --"
-"----------------------------------------------------------------------"
+" ========== GUI ===============================================
+if has('gui_running')
+  set guioptions-=T  "Don't show toolbar
+  set wak=no " Don't use the ALT-keys for menus.
+  "set linespace=2  " Number of pixel lines to use between lines.
+
+  colorscheme solarized
+  set background=light
+
+  nnoremap <F11> :call ToggleFullScreen()<CR>
+  inoremap <F11> :call ToggleFullScreen()<CR>
+endif
+
+" ========== DEFINITIONS ===============================================
+" Load indentation rules and plugins according to the detected filetype.
+if has("autocmd")
+  filetype plugin indent on
+endif
+
+" Enables syntax highlighting.
+if has("syntax")
+  syntax on
+endif
+
 " set current working directory to home directory
 cd
 
@@ -704,17 +853,6 @@ syntax on
 
 " Toggle background
 ca tbg call ToggleBg()
-
-
-"--- Search
-"set ignorecase  " ignore case when searching
-set smartcase  " ignore case if search pattern is all lowercase, case-sensitive otherwise
-"set hlsearch  " highlight search terms
-"set incsearch  " show search matches as you type
-
-"--- History
-"set history=1000 " remember more commands and search history
-"set undolevels=1000 " use many muchos levels of undo
 
 "Remove all highlighting
 nnoremap & :nohls<CR>
@@ -743,7 +881,87 @@ set backspace=2
 "visually select all the text in between mathing elements
 "noremap % v%
 
-"backup, swaps
+
+" When editing a file, always jump to the last known cursor position.
+" Don't do it when the position is invalid or when inside an event
+" handler (happens when dropping a file on gvim).
+"if has("autocmd")
+    "set viewoptions=cursor,folds
+    "au BufWinLeave * mkview
+    "au BufWinEnter * silent loadview
+"endif
+
+" Spell checking
+"setlocal spell spelllang=en_us
+
+"Switch between Vim window splits easily
+nmap <silent> <C-Up> :wincmd k<CR>
+nmap <silent> <C-Down> :wincmd j<CR>
+nmap <silent> <C-Left> :wincmd h<CR>
+nmap <silent> <C-Right> :wincmd l<CR>
+
+"To add a blank line below or above and keep the cursor in place
+nmap <S-Enter> m`O<Esc>``
+nmap <C-Enter> m`o<Esc>``
+"Insert new line in insert mode without breaking current line
+imap <S-Enter> <Esc><S-Enter>li
+imap <C-Enter> <Esc><C-Enter>li
+
+"Delete current line in insert mode
+imap <C-D> <Esc>ddi
+"Substitute current line in insert mode
+"imap <C-S> <Esc>S
+
+"The above command will change the 'completeopt' option so that Vim's popup menu doesn't select the first completion item, but rather just inserts the longest common text of all matches; and the menu will come up even if there's only one match. (The longest setting is responsible for the former effect and the menuone is responsible for the latter.)
+set completeopt=longest,menuone
+
+"Automatically change the current directory
+"Change to [C]urrent [W]orking [D]irectory
+map <leader>cd :cd %:p:h<CR>
+command CWD cd %:p:h
+
+"If you still want to retain the visual selection after having pressed > or <,
+"you can use these mappings \
+vnoremap > >gv
+vnoremap < <gv
+
+" Remove the Windows ^M - when the encodings gets messed up
+"noremap <Leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
+
+" Select last paste in visual mode
+nnoremap <expr> gb '`[' . strpart(getregtype(), 0, 1) . '`]'
+
+" ========== MOUSE =============================================
+set mouse=a " Enable mouse usage (all modes).
+
+" ========== RETAB, TRAILING WHITESPACES =============================================
+"Automatically retab
+autocmd BufWritePre  *.{cpp,h,c,rb,java,pl}  :retab
+autocmd FileAppendPre *.{cpp,h,c,rb,java,pl}  :retab
+autocmd FileWritePre  *.{cpp,h,c,rb,java,pl}  :retab
+autocmd FilterWritePre  *.{cpp,h,c,rb,java,pl}  :retab
+
+"Automatically remove trailing whitespaces
+autocmd BufWritePre  *.{cpp,h,c,rb,java,pl}  call StripTrailingWhite()
+autocmd FileAppendPre *.{cpp,h,c,rb,java,pl}  call StripTrailingWhite()
+autocmd FileWritePre  *.{cpp,h,c,rb,java,pl}  call StripTrailingWhite()
+autocmd FilterWritePre  *.{cpp,h,c,rb,java,pl}  call StripTrailingWhite()
+
+map <C-s> :call StripTrailingWhite() \| retab \| w<CR>
+map! <C-s> :call StripTrailingWhite() \| retab \| w<CR>
+imap <C-s> <C-\><C-O><C-s>
+
+" ========== MOVE, SEARCH & PATTERNS ===========================
+"set ignorecase  " ignore case when searching
+set smartcase  " ignore case if search pattern is all lowercase, case-sensitive otherwise
+"set hlsearch  " highlight search terms
+"set incsearch  " show search matches as you type
+
+" ========== MOVE, SEARCH & PATTERNS ===========================
+"set history=1000 " remember more commands and search history
+"set undolevels=1000 " use many muchos levels of undo
+
+" ========== BACKUP, SWAPS ===========================
 " Save your backups to a less annoying place than the current directory.
 " If you have .vim-backup in the current directory, it'll use that.
 " Otherwise it saves it to ~/.vim/backup or . if all else fails.
@@ -789,69 +1007,13 @@ endif
 "let &backupdir=my_backupdir.'//'"
 "set directory=my_backupdir.'//'"
 
-" When editing a file, always jump to the last known cursor position.
-" Don't do it when the position is invalid or when inside an event
-" handler (happens when dropping a file on gvim).
-"if has("autocmd")
-    "set viewoptions=cursor,folds
-    "au BufWinLeave * mkview
-    "au BufWinEnter * silent loadview
-"endif
-
-" Spell checking
-"setlocal spell spelllang=en_us
-
-"Automatically retab
-autocmd BufWritePre  *.{cpp,h,c,rb,java,pl}  :retab
-autocmd FileAppendPre *.{cpp,h,c,rb,java,pl}  :retab
-autocmd FileWritePre  *.{cpp,h,c,rb,java,pl}  :retab
-autocmd FilterWritePre  *.{cpp,h,c,rb,java,pl}  :retab
-
-"Automatically remove trailing whitespaces
-autocmd BufWritePre  *.{cpp,h,c,rb,java,pl}  call StripTrailingWhite()
-autocmd FileAppendPre *.{cpp,h,c,rb,java,pl}  call StripTrailingWhite()
-autocmd FileWritePre  *.{cpp,h,c,rb,java,pl}  call StripTrailingWhite()
-autocmd FilterWritePre  *.{cpp,h,c,rb,java,pl}  call StripTrailingWhite()
-
-map <C-s> :call StripTrailingWhite() \| retab \| w<CR>
-map! <C-s> :call StripTrailingWhite() \| retab \| w<CR>
-imap <C-s> <C-\><C-O><C-s>
-
-"Switch between Vim window splits easily
-"nmap <silent> <C-Up> :wincmd k<CR>
-"nmap <silent> <C-Down> :wincmd j<CR>
-"nmap <silent> <C-Left> :wincmd h<CR>
-"nmap <silent> <C-Right> :wincmd l<CR>
-
-"To add a blank line below or above and keep the cursor in place
-nmap <S-Enter> m`O<Esc>``
-nmap <C-Enter> m`o<Esc>``
-"Insert new line in insert mode without breaking current line
-imap <S-Enter> <Esc><S-Enter>li
-imap <C-Enter> <Esc><C-Enter>li
-
-"Delete current line in insert mode
-imap <C-D> <Esc>ddi
-"Substitute current line in insert mode
-"imap <C-S> <Esc>S
-
-"The above command will change the 'completeopt' option so that Vim's popup menu doesn't select the first completion item, but rather just inserts the longest common text of all matches; and the menu will come up even if there's only one match. (The longest setting is responsible for the former effect and the menuone is responsible for the latter.)
-set completeopt=longest,menuone
-
-"Automatically change the current directory
-"Change to [C]urrent [W]orking [D]irectory
-map <leader>cd :cd %:p:h<CR>
-command CWD cd %:p:h
-
-"--- buffers managment ---"
+" ========== BUFFERS MANAGMENT ===========================
 map <C-S-Right> :bnext<CR>
 map <C-S-Left> :bprevious<CR>
 imap <C-S-Right> <ESC>:bnext<CR>
 imap <C-S-Left> <ESC>:bprevious<CR>
 
-" Remove the Windows ^M - when the encodings gets messed up
-"noremap <Leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
-
+" ========== GROUPS ===========================
 au! BufRead,BufNewFile *.tex set filetype=tex
 augroup TeX
     autocmd!
@@ -873,9 +1035,16 @@ augroup JSON
   autocmd FileType json set foldmethod=syntax
 augroup END
 
-augroup Text
+au! BufRead,BufNewFile *.{txt,md} set filetype=general_txt
+augroup GENERAL_TXT
     autocmd!
-    autocmd BufNewFile,BufRead *.{txt,md} setlocal spell!
+    autocmd FileType general_txt setlocal spell!
+augroup END
+
+au! BufRead,BufNewFile *.{yaml,yml} set filetype=yaml
+augroup YAML
+  autocmd!
+  autocmd FileType yaml set foldmethod=indent
 augroup END
 
 augroup Perl
@@ -908,15 +1077,6 @@ augroup Perl
     "or for modules when cursor is on 'use' or 'require' line.
     map <leader>pd :call PerlDoc()<CR>:set nomod<CR>:set filetype=man<CR>:echo "perldoc"<CR>
 augroup END
-
-"-- CVIM specific --"
-"----------------------------------------------------------------------"
-if has('gui_running')
-  colorscheme solarized
-  set background=light
-  "Don't show toolbar
-  set guioptions-=T
-endif
 
 "-- Plagins --"
 "----------------------------------------------------------------------"
@@ -966,5 +1126,4 @@ nnoremap <leader>/ :call eregex#toggle()<CR>
 "]M jumps to the next perl subroutine end
 "[m jumps to the previous perl subroutine start
 "[M jumps to the previous perl subroutine end
-
 
