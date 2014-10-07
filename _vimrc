@@ -14,40 +14,43 @@ xmap <Right> l
 "----------------------------------------------------------------------"
 filetype off                   " required!
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle
 " required!
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/Vundle.vim'
 
 "-- My Bundles here:
-Bundle 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/nerdcommenter'
   "plugin that allows for easy commenting of code for many filetypes
   map <leader>ca{ va{ \| <leader>cc
   map <leader>c% v% \| <leader>cc
-Bundle 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdtree'
   "tree explorer plugin for navigating the filesystem
   nmap <leader>e :NERDTreeToggle<CR>
-"Bundle 'astashov/vim-ruby-debugger'
+"Plugin 'astashov/vim-ruby-debugger'
   "Vim plugin for debugging Ruby applications (using ruby-debug-ide gem)
   "for more information see help for vim-ruby-debug
   "let g:ruby_path = ':C:\ruby192\bin\ruby.exe -Ilib'
   "let g:ruby_debugger_progname = 'C:\Program Files\Vim\vim73\gvim.exe'
   "let g:ruby_debugger_builtin_sender = 0
-Bundle 'acx0/Conque-Shell'
-  "Bundle 'Conque-Shell'
+Plugin 'acx0/Conque-Shell'
+  "Plugin 'Conque-Shell'
   "Should be checked for new versions on http://www.vim.org/scuipts/script.php?script_id=2771
   "Run interactive commands inside a Vim buffer
-Bundle 'vim-scripts/upAndDown'
+Plugin 'vim-scripts/upAndDown'
    "upAndDown : Swapping a line with the line directly above or below
    "By default, use <S-Up> and <S-Down> to move line or block of lines.
-"Bundle 'othree/eregex.vim'
+"Plugin 'othree/eregex.vim'
    "Perl/Ruby style regexp notation for Vim'
-"Bundle 'FavEx'
+"Plugin 'FavEx'
   "Favorite file and directory explorer
-Bundle 'minibufexpl.vim'
-  "Bundle 'fholgado/minibufexpl.vim' "{'name': 'minibuxexpl'}
+Plugin 'minibufexpl.vim'
+  "Plugin 'fholgado/minibufexpl.vim' "{'name': 'minibuxexpl'}
   "Elegant buffer explorer
   "hi MBENormal               guifg=#808080 guibg=fg
   "hi MBEVisibleNormal        guifg=#5DC2D6 guibg=fg
@@ -55,77 +58,77 @@ Bundle 'minibufexpl.vim'
   "hi MBEVisibleChanged       guifg=#F1266F guibg=fg
   "hi MBEVisibleActiveNormal  guifg=#A6DB29 guibg=fg
   "hi MBEVisibleActiveChanged guifg=#F1266F guibg=fg
-Bundle 'mru.vim'
+Plugin 'mru.vim'
   "Plugin to manage Most Recently Used (MRU) files
-Bundle 'ZoomWin'
+Plugin 'ZoomWin'
   "Zoom in/out  of windows (toggle between one window and multi-window)
-Bundle 'beloglazov/vim-online-thesaurus'
+Plugin 'beloglazov/vim-online-thesaurus'
   "vim-online-thesaurus : A Vim plugin for looking up words in an online thesaurus
   "http://www.vim.org/scripts/script.php?script_id=4588
   "https://github.com/beloglazov/vim-online-thesaurus
-Bundle 'LanguageTool'
+Plugin 'LanguageTool'
   "LanguageTool : Grammar checker for English, French, German (etc.) in Vim
   "http://www.vim.org/scripts/script.php?script_id=3223
   let g:languagetool_jar='/home/genadyp/Downloads/App/LanguageTool/LanguageTool-2.2/languagetool-commandline.jar'
   "map <leader>lt :LanguageToolCheck<CR>
   "map <leader>lc :LanguageToolClear<CR>
-"Bundle 'terryma/vim-expand-region'
+"Plugin 'terryma/vim-expand-region'
   "vim-expand-region : Incremental visual selection
   "http://www.vim.org/scripts/script.php?script_id=4499
   "https://github.com/terryma/vim-expand-region
-"Bundle 'terryma/vim-multiple-cursors'
+"Plugin 'terryma/vim-multiple-cursors'
   "vim-multiple-cursors : True Sublime Text style multiple selections for Vim
   "https://github.com/terryma/vim-multiple-cursors
   "http://www.vim.org/scripts/script.php?script_id=4523
-"Bundle 'easytags.vim'
+"Plugin 'easytags.vim'
   "easytags.vim : Automated tag file generation and syntax highlighting of tags in Vim
   "http://www.vim.org/scripts/script.php?script_id=3114
-"Bundle 'sjl/gundo.vim'
+"Plugin 'sjl/gundo.vim'
   "Gundo : Visualize your undo tree.
   "http://www.vim.org/scripts/script.php?script_id=3304
   "http://sjl.bitbucket.org/gundo.vim/
   "https://github.com/sjl/gundo.vim/
-"Bundle 'xolox/vim-notes'
+"Plugin 'xolox/vim-notes'
   "notes.vim : Easy note taking in Vim
   "http://www.vim.org/scripts/script.php?script_id=3375
   "http://github.com/xolox/vim-notes
-"Bundle 'bling/vim-airline'
+"Plugin 'bling/vim-airline'
   "vim-airline : lean & mean statusline that's light as air
   "http://www.vim.org/scripts/script.php?script_id=4661
   "https://github.com/bling/vim-airline
-"Bundle 'Lokaltog/powerline'
+"Plugin 'Lokaltog/powerline'
   "vim-powerline : The ultimate vim statusline utility
   "http://www.vim.org/scripts/script.php?script_id=3881
   "https://github.com/Lokaltog/powerline
-"Bundle 'DiffGoFile'
+"Plugin 'DiffGoFile'
   "DiffGoFile : Jump to file from diff output
   "http://www.vim.org/scripts/script.php?script_id=1888
-"Bundle 'arecarn/crunch'
+"Plugin 'arecarn/crunch'
   "Crunch : An easier way to perform calculations inside Vim
   "http://www.vim.org/scripts/script.php?script_id=4686
   "https://github.com/arecarn/crunch
-"Bundle 'xolox/vim-misc'
+"Plugin 'xolox/vim-misc'
   "vim-misc : Miscellaneous auto-load Vim scripts
   "http://www.vim.org/scripts/script.php?script_id=4597
   "https://github.com/xolox/vim-misc
-"Bundle 'xolox/vim-easytags'
+"Plugin 'xolox/vim-easytags'
   "easytags.vim : Automated tag file generation and syntax highlighting of tags in V
   "depends on vim-misc
   "http://www.vim.org/scripts/script.php?script_id=3114
   "https://github.com/xolox/vim-easytags
-"Bundle 'tsaleh/vim-align'
+"Plugin 'tsaleh/vim-align'
   "Align : Help folks to align text, eqns, declarations, tables, etc
   "https://github.com/tsaleh/vim-align
   "http://www.vim.org/scripts/script.php?script_id=294
-Bundle 'suan/vim-instant-markdown'
+Plugin 'suan/vim-instant-markdown'
   "instant-markdown.vim : Real-time Markdown previews from Vim!
   "https://github.com/suan/vim-instant-markdown
   "http://www.vim.org/scripts/script.php?script_id=3994
-"Bundle 't9md/vim-quickhl'
+"Plugin 't9md/vim-quickhl'
   "quickhl.vim : Quickly highlight multiple word.
   "http://www.vim.org/scripts/script.php?script_id=3692
   "https://github.com/t9md/vim-quickhl
-Bundle 'vim-scripts/TaskList.vim'
+Plugin 'vim-scripts/TaskList.vim'
   "TaskList.vim : Eclipse like task list
   "http://www.vim.org/scripts/script.php?script_id=2607
   "https://github.com/vim-scripts/TaskList.vim
@@ -160,7 +163,7 @@ Bundle 'vim-scripts/TaskList.vim'
   " to overwrite use:
   " let g:tlRememberPosition = 1
   " in your vimrc file
-Bundle 'highlight.vim'
+Plugin 'highlight.vim'
   " Line mode
   " <C-h><C-h>   Highlight current line
   " <C-h><C-a>   Advance color for next line highlight
@@ -176,7 +179,7 @@ Bundle 'highlight.vim'
   " <C-h><C-n>   Clear all highlights
   " All above commands work in both normal & insert modes.
   " <C-h><C-h> also works in visual mode. (Select desired lines & hit <C-h><C-h>)
-Bundle 'junegunn/goyo.vim'
+Plugin 'junegunn/goyo.vim'
   " Distraction-free writing in Vim
   " :Goyo [width]
   " You might map this to a key combo in your .vimrc like so:
@@ -227,25 +230,25 @@ Bundle 'junegunn/goyo.vim'
   let g:goyo_callbacks = [function('Goyo_before'), function('Goyo_after')]
 
 "---- Coding
-Bundle 'vim-scripts/AutoComplPop'
+Plugin 'vim-scripts/AutoComplPop'
   " Automatically opens popup menu for completions
   " http://www.vim.org/scripts/script.php?script_id=1879
   " To enable perl-completion.vim
   let g:acp_behaviorPerlOmniLength=0
 
 "---- Motion
-Bundle 'tpope/vim-endwise'
+Plugin 'tpope/vim-endwise'
   "endwise.vim: wisely add 'end' in ruby
   "https://github.com/tpope/vim-endwise
   "http://www.vim.org/scripts/script.php?script_id=2386
-"Bundle 'tpope/vim-surround'
+"Plugin 'tpope/vim-surround'
   "surround.vim: quoting/parenthesizing made simple
   "https://github.com/tpope/vim-surround
   "http://www.vim.org/scripts/script.php?script_id=1697
-"Bundle 'AutoClose'
+"Plugin 'AutoClose'
   "AutoClose : Inserts matching bracket, paren, brace or quote
   "http://www.vim.org/scripts/script.php?script_id=1849
-Bundle 'jiangmiao/auto-pairs'
+Plugin 'jiangmiao/auto-pairs'
   "Auto Pairs : Insert or delete brackets, parens, quotes in pair
   "http://www.vim.org/scripts/script.php?script_id=3599
   "https://github.com/jiangmiao/auto-pairs
@@ -276,27 +279,27 @@ Bundle 'jiangmiao/auto-pairs'
     "endif
   "endfunction
 
-"Bundle 'amdt/vim-niji'
+"Plugin 'amdt/vim-niji'
   "vim-niji : Yet another rainbow parentheses plugin.
   "http://www.vim.org/scripts/script.php?script_id=4580
   "https://github.com/amdt/vim-niji
-"Bundle 'Yggdroot/indentLine'
+"Plugin 'Yggdroot/indentLine'
   "indentLine.vim : An indent guides plugin displaying thin vertical lines.
   "http://www.vim.org/scripts/script.php?script_id=4354
   "https://github.com/Yggdroot/indentLine
-"Bundle 'matze/vim-move'
+"Plugin 'matze/vim-move'
   "move : vim-move moves single lines and selected text up and down
   "http://www.vim.org/scripts/script.php?script_id=4687
   "https://github.com/matze/vim-move
-"Bundle 'kien/ctrlp.vim'
+"Plugin 'kien/ctrlp.vim'
   "ctrlp.vim : Fuzzy file, buffer, mru, tag, ... finder with regexp support.
   "http://www.vim.org/scripts/script.php?script_id=3736
   "https://github.com/kien/ctrlp.vim
-"Bundle 'tacahiroy/ctrlp-funky'
+"Plugin 'tacahiroy/ctrlp-funky'
   "ctrlp-funky : Jumps to a function definition via ctrlp.vim interface
   "http://www.vim.org/scripts/script.php?script_id=4592
   "https://github.com/tacahiroy/ctrlp-funky
-Bundle 'vim-scripts/textmanip.vim'
+Plugin 'vim-scripts/textmanip.vim'
   "textmanip.vim : Maniplate(duplicate, move) selected text easily
   "https://github.com/vim-scripts/textmanip.vim
   "https://github.com/t9md/vim-textmanip
@@ -305,12 +308,12 @@ Bundle 'vim-scripts/textmanip.vim'
   xmap <S-k> <Plug>(textmanip-move-up-r)
   xmap <S-h> <Plug>(textmanip-move-left)
   xmap <S-l> <Plug>(textmanip-move-right)
-"Bundle 'goldfeld/vim-seek'
+"Plugin 'goldfeld/vim-seek'
   "Seek makes navigating long lines effortless, acting like f but taking two characters.
   "Seek is a vim plugin that aims to be your go-to characterwise motion workhorse.
   "The motion seek, summoned with <s> by default.
   "https://github.com/goldfeld/vim-seek
-Bundle 'justinmk/vim-sneak'
+Plugin 'justinmk/vim-sneak'
   "Sneak is a Vim plugin that enables you to move to any location specified by two characters.
   "It works across multiple lines; with operators (including repeat .); and in visual mode.
   "Move to the next or previous match via ; or ,. Move to the nth match by prefixing ; or , with a [count]
@@ -321,20 +324,20 @@ Bundle 'justinmk/vim-sneak'
   "  Press gUz\} to upper-case the text from the cursor until the next instance of the literal text \}
   "      Press . to repeat the gUz\} operation.
   "https://github.com/justinmk/vim-sneak
-Bundle 'catalinciurea/perl-nextmethod'
+Plugin 'catalinciurea/perl-nextmethod'
   "perl-nextmethod : ]m, ]M, [m, [M next/previous perl method motions
   "http://www.vim.org/scripts/script.php?script_id=4697
   "https://github.com/catalinciurea/perl-nextmethod
-"Bundle 'wesleyche/SrcExpl'
+"Plugin 'wesleyche/SrcExpl'
   "Source Explorer (SrcExpl) : the Source code Explorer which works like the context window of "Source Insight"
   "http://www.vim.org/scripts/script.php?script_id=2179
   "https://github.com/wesleyche/SrcExpl
-Bundle 'luochen1990/select-and-search'
+Plugin 'luochen1990/select-and-search'
   "select text in v mode, then press n to search next one (N for prev one)
   "https://github.com/luochen1990/select-and-search
   "http://www.vim.org/scripts/script.php?script_id=4819
   let g:select_and_search_active = 1
-Bundle 'gcmt/wildfire.vim'
+Plugin 'gcmt/wildfire.vim'
   "Smart selection of the closest text object
   "https://github.com/gcmt/wildfire.vim
   " This selects the next closest text object.
@@ -343,9 +346,9 @@ Bundle 'gcmt/wildfire.vim'
   "let g:wildfire_water_map = "<BS>"
 
 "---- Syntax
-Bundle 'Specky'
+Plugin 'Specky'
   "Functions to help make behavioral testing easy with ruby and rspec.
-Bundle 'LaTeX-Box-Team/LaTeX-Box'
+Plugin 'LaTeX-Box-Team/LaTeX-Box'
   "LaTeX Box : Lightweight Toolbox for LaTeX
   "http://www.vim.org/scripts/script.php?script_id=3109
   "https://github.com/LaTeX-Box-Team/LaTeX-Box
@@ -365,14 +368,14 @@ Bundle 'LaTeX-Box-Team/LaTeX-Box'
   let g:LatexBox_viewer = 'xdvi -editor "gvim --servername vimtex --remote +\%l \%f"'
   "Forward search
   map <leader>ld :silent execute '!xdvi -editor "gvim --servername 'v:servername' --remote-wait +\%l \%f" -sourceposition ' . line(".") . expand("%") . " "  b:main_dvi_file<CR>
-Bundle 'elzr/vim-json'
+Plugin 'elzr/vim-json'
   "A syntax highlighting file for JSON
   "https://github.com/elzr/vim-json
-Bundle 'hallison/vim-markdown'
+Plugin 'hallison/vim-markdown'
   "Markdown syntax highlight for Vim editor with snippets support
   "https://github.com/hallison/vim-markdown
   "http://www.vim.org/scripts/script.php?script_id=2882
-Bundle 'danchoi/ri.vim'
+Plugin 'danchoi/ri.vim'
   "browse ri documentation from Vim
   "https://github.com/danchoi/ri.vim
   "Usage:
@@ -385,8 +388,8 @@ Bundle 'danchoi/ri.vim'
   map <leader>rk :call ri#LookupNameUnderCursor()<cr> " keyword lookup
   "Example:
   "  To look for String::gsub type String#gsub
-Bundle 'ri-viewer'
-"Bundle 'vim-scripts/ri-viewer'
+Plugin 'ri-viewer'
+"Plugin 'vim-scripts/ri-viewer'
   "ri-viewer.vim looks up ruby document directories with a keyword such like class name or method.
   "https://github.com/vim-scripts/ri-viewer
   "http://www.vim.org/scripts/script.php?script_id=3621
@@ -398,36 +401,36 @@ Bundle 'ri-viewer'
   "  :RiCore
   "  :RiGem
   "  :RiHome
-"Bundle 'Rubytest.vim'
+"Plugin 'Rubytest.vim'
   "Rubytest.vim : Run ruby tests in vim
   "http://www.vim.org/scripts/script.php?script_id=2612
   "https://github.com/janx/vim-rubytest"
-"Bundle 'Rykka/riv.vim'
+"Plugin 'Rykka/riv.vim'
   "riv.vim : reStructuredText  in vim
   "https://github.com/Rykka/riv.vim
   "http://www.vim.org/scripts/script.php?script_id=4112
-"Bundle 'dmcinnes/ruby_single_test'
+"Plugin 'dmcinnes/ruby_single_test'
   "Ruby Single Test : Runs a single Ruby test under the cursor
   "https://github.com/dmcinnes/ruby_single_test
   "http://www.vim.org/scripts/script.php?script_id=2869
-"Bundle 'TeX-9'
+"Plugin 'TeX-9'
   "TeX 9 : A semi-automatic LaTeX ftplugin with lots of firepower!
   "http://www.vim.org/scripts/script.php?script_id=3508
-"Bundle 'bash-support.vim'
+"Plugin 'bash-support.vim'
   "bash-support.vim : BASH IDE -- Write and run BASH-scripts using menus and hotkeys.
   "http://www.vim.org/scripts/script.php?script_id=365
-"Bundle 'plasticboy/vim-markdown'
+"Plugin 'plasticboy/vim-markdown'
   "Markdown Vim Mode
   "(Cannot install with Vundle)
   "https://github.com/plasticboy/vim-markdown/
   "http://plasticboy.com/markdown-vim-mode/
-"Bundle 'Keithbsmiley/investigate.vim'
+"Plugin 'Keithbsmiley/investigate.vim'
   "A Vim plugin for looking up documentation
   "https://github.com/Keithbsmiley/investigate.vim/
-Bundle 'c9s/perlomni.vim'
+Plugin 'c9s/perlomni.vim'
   " perl omnicompletion for vim
   " https://github.com/c9s/perlomni.vim
-"Bundle 'pjcj/vim-hl-var'
+"Plugin 'pjcj/vim-hl-var'
   " Highlight all instances of the Perl variable under the cursor.
   " The variables will be highlighted after you have not performed any action for a certain length of time.
   " That time is controlled by the updatetime setting.
@@ -438,9 +441,9 @@ Bundle 'c9s/perlomni.vim'
   " you can disable it by setting variable g:hlvarcurrent to 1.
   " let g:hlvarcurrent = 1
   "set updatetime=500
-"Bundle 'genadyp/vawa.vim'
+"Plugin 'genadyp/vawa.vim'
   " Highlight all instances of the Perl variable under the cursor.
-Bundle 'scrooloose/syntastic'
+Plugin 'scrooloose/syntastic'
   " Syntax checking hacks for vim
   " You can see syntastic's idea of available checkers by running :SyntasticInfo
   " You can also run checkers explicitly by calling :SyntasticCheck <checker>
@@ -475,142 +478,142 @@ Bundle 'scrooloose/syntastic'
   let g:syntastic_perl_checkers = ['perl', 'podchecker']
 
 "---- Version Control
-"Bundle 'airblade/vim-gitgutter'
+"Plugin 'airblade/vim-gitgutter'
   "A Vim plugin which shows a git diff in the gutter (sign column)
   "https://github.com/airblade/vim-gitgutter
-"Bundle 'mhinz/vim-signify'
+"Plugin 'mhinz/vim-signify'
   "A plugin that shows a diff via Vim's sign column
   "https://github.com/mhinz/vim-signify
-"Bundle 'git://repo.or.cz/vcscommand'
+"Plugin 'git://repo.or.cz/vcscommand'
   "vcscommand.vim : CVS/SVN/SVK/git/hg/bzr integration plugin
   "http://www.vim.org/scripts/script.php?script_id=90
   "http://www.allaboutvim.ru/2007/08/vcscommandvim-svn_09.html
-"Bundle 'tpope/vim-fugitive'
+"Plugin 'tpope/vim-fugitive'
   "fugitive.vim : A Git wrapper so awesome, it should be illegal
   "http://www.vim.org/scripts/script.php?script_id=2975
 
 
 "---- Colors
-Bundle 'ColorSchemeMenuMaker'
+Plugin 'ColorSchemeMenuMaker'
   "ColorSchemeMenuMaker : Auto-generates menu containing your colorschemes
   "(keywords: color scheme menu)
   "http://www.vim.org/scripts/script.php?script_id=2004
-Bundle 'Son-of-Obisidian'
-  " Bundle 'vim-scripts/Son-of-Obisidian'
+Plugin 'Son-of-Obisidian'
+  " Plugin 'vim-scripts/Son-of-Obisidian'
   "Son of Obisidian : Port of Visual Studio 2010 Son of obsidian color scheme
-Bundle 'abra/obsidian2'
+Plugin 'abra/obsidian2'
    "Obsidian2 Color scheme based on Notepad++ obsidian Color scheme
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'tomasr/molokai'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'tomasr/molokai'
    "Molokai is a Vim port of the monokai theme for TextMate originally created by Wimer Hazenberg.
    "https://github.com/tomasr/molokai
-Bundle 'sickill/vim-monokai'
+Plugin 'sickill/vim-monokai'
    "https://github.com/sickill/vim-monokai
-Bundle 'xoria256.vim'
+Plugin 'xoria256.vim'
    "xoria256.vim : Soft pastel gamma on dark background, same appearence in {,g}vim
    "http://www.vim.org/scripts/script.php?script_id=2140
-Bundle 'vim-scripts/darkslategray.vim'
+Plugin 'vim-scripts/darkslategray.vim'
    "darkslategray.vim : Dark slate gray background, pastel colored text
    "http://www.vim.org/scripts/script.php?script_id=149
-Bundle 'veloce/vim-aldmeris'
+Plugin 'veloce/vim-aldmeris'
    "aldmeris : A colorscheme based on oblivion for gedit that support GVIM and 256 colors term
    "http://www.vim.org/scripts/script.php?script_id=3673
    "https://github.com/veloce/vim-aldmeris
-Bundle 'moss'
+Plugin 'moss'
    "moss : Dark color scheme for low light conditions
    "http://www.vim.org/scripts/script.php?script_id=2779
-Bundle 'Briofita'
+Plugin 'Briofita'
    "Briofita : a dark background GUI colorscheme
    "http://www.vim.org/scripts/script.php?script_id=4136
-Bundle 'junegunn/seoul256.vim'
+Plugin 'junegunn/seoul256.vim'
    "seoul256.vim : A low-contrast Vim color scheme based on Seoul Colors
    "http://www.vim.org/scripts/script.php?script_id=4605
    "https://github.com/junegunn/seoul256.vim
-Bundle 'tango-morning.vim'
+Plugin 'tango-morning.vim'
    "tango-morning.vim : Light Grey Tango color theme based on Morning
    "http://www.vim.org/scripts/script.php?script_id=2640
-Bundle 'two2tango'
+Plugin 'two2tango'
    "two2tango : Colorscheme based upon Tango palette
    "http://www.vim.org/scripts/script.php?script_id=1988
-Bundle 'twilight'
+Plugin 'twilight'
    "twilight : A clone of Textmates twilight scheme
    "http://www.vim.org/scripts/script.php?script_id=1677
-Bundle 'genadyp/atelier_colors'
+Plugin 'genadyp/atelier_colors'
    "fork of atelier-schemes for vim
-Bundle 'donbass.vim'
+Plugin 'donbass.vim'
    "donbass.vim : Finely tuned, 256 color, light-grey background colorscheme
    "http://www.vim.org/scripts/script.php?script_id=2730
-Bundle 'jonathanfilip/vim-lucius'
+Plugin 'jonathanfilip/vim-lucius'
    "Lucius : Light and dark color scheme for GUI and 256 color terminal.
    "https://github.com/jonathanfilip/vim-lucius
    "http://www.vim.org/scripts/script.php?script_id=2536
-Bundle 'moria'
-Bundle 'sienna'
-Bundle 'freya'
-Bundle 'chriskempson/base16-vim'
+Plugin 'moria'
+Plugin 'sienna'
+Plugin 'freya'
+Plugin 'chriskempson/base16-vim'
    "https://github.com/chriskempson/base16-vim
-Bundle 'sonoma.vim'
+Plugin 'sonoma.vim'
    "sonoma.vim : An easy-breezy color theme that acts as a soothing balm for your eyes.
    "http://www.vim.org/scripts/script.php?script_id=4072
-Bundle 'mayansmoke'
+Plugin 'mayansmoke'
    "mayansmoke : Ergonomic light-background color scheme.
    "http://www.vim.org/scripts/script.php?script_id=3065
-Bundle 'kayaalpg/lithochromatic-vim'
+Plugin 'kayaalpg/lithochromatic-vim'
    "LithoChromatic Color Theme for Vim - A low contrast color theme.
    "https://github.com/kayaalpg/lithochromatic-vim
    "http://www.vim.org/scripts/script.php?script_id=4406
-Bundle 'darkspectrum'
+Plugin 'darkspectrum'
    "darkspectrum : a gvim color scheme based on the oblivion color scheme for gedit
    "http://www.vim.org/scripts/script.php?script_id=2215
-Bundle 'Zenburn'
+Plugin 'Zenburn'
    "Zenburn : Low contrast colour scheme for low light conditions
    "http://www.vim.org/scripts/script.php?script_id=415
    "https://github.com/jnurmine/Zenburn
-Bundle 'DesertedOceanBurnt'
+Plugin 'DesertedOceanBurnt'
    "DesertedOceanBurnt : A dull, low saturation version of desertedocean
    "http://www.vim.org/scripts/script.php?script_id=1407
-Bundle 'neutron.vim'
+Plugin 'neutron.vim'
    "neutron.vim : Light background colorscheme
    "http://www.vim.org/scripts/script.php?script_id=2964
-Bundle 'watermark'
+Plugin 'watermark'
    "watermark : a low contrast Color Scheme
    "http://www.vim.org/scripts/script.php?script_id=1471
-Bundle 'yellow'
+Plugin 'yellow'
    "yellow : A yellow-green color scheme
    "http://www.vim.org/scripts/script.php?script_id=1474
-Bundle 'adobe.vim'
+Plugin 'adobe.vim'
    "adobe.vim : Adobe theme, easy on eyes. Coloring philosophy inside
    "https://github.com/vim-scripts/adobe.vim
    "http://www.vim.org/scripts/script.php?script_id=1365
-Bundle 'winter.vim'
+Plugin 'winter.vim'
    "winter.vim : light gray style
    "http://www.vim.org/scripts/script.php?script_id=2383
-Bundle 'morhetz/gruvbox'
+Plugin 'morhetz/gruvbox'
    "Retro groove color scheme for Vim
    "https://github.com/morhetz/gruvbox
-Bundle 'vim-scripts/wombat256.vim'
+Plugin 'vim-scripts/wombat256.vim'
    "Wombat for 256 color xterms
    "http://www.vim.org/scripts/script.php?script_id=2465
    "https://github.com/vim-scripts/wombat256.vim
-Bundle 'vim-scripts/vilight.vim'
+Plugin 'vim-scripts/vilight.vim'
    "A more literal translation of Will Farrington's Twilight color theme
    "http://www.vim.org/scripts/script.php?script_id=2776
    "https://github.com/vim-scripts/vilight.vim
-Bundle 'w0ng/vim-hybrid'
+Plugin 'w0ng/vim-hybrid'
   "A dark colourscheme for Vim that combines the:
   "  colour palette from Tomorrow-Night.
   "  syntax group highlighting scheme from Jellybeans
   "  Vim code from Solarized
-"Bundle 'genadyp/vim-tomorrow-theme'
+"Plugin 'genadyp/vim-tomorrow-theme'
   "TODO breaks solorized theme
-Bundle 'zeis/vim-kolor'
-Bundle 'cocopon/iceberg.vim'
-Bundle '29decibel/codeschool-vim-theme'
-Bundle 'vim-scripts/darktango.vim'
-Bundle 'jpo/vim-railscasts-theme'
-Bundle 'reedes/vim-colors-pencil'
-Bundle 'romainl/Apprentice'
-Bundle 'jeetsukumaran/vim-nefertiti'
+Plugin 'zeis/vim-kolor'
+Plugin 'cocopon/iceberg.vim'
+Plugin '29decibel/codeschool-vim-theme'
+Plugin 'vim-scripts/darktango.vim'
+Plugin 'jpo/vim-railscasts-theme'
+Plugin 'reedes/vim-colors-pencil'
+Plugin 'romainl/Apprentice'
+Plugin 'jeetsukumaran/vim-nefertiti'
   "Three commands are provided to control the brightness levels:
   ":MochalatteBrighten, :MochalatteDarken, and MochalatteReset.
   "By default, META-2 (ALT-2 on some keyboards) increases the brightness of the text
@@ -618,29 +621,33 @@ Bundle 'jeetsukumaran/vim-nefertiti'
   "These key-mappings can be suppressed and or customized:
 
 "---- To Install
-"Bundle 'hotchpotch/perldoc-vim'
-"Bundle 'JessicaKMcIntosh/perlhelp-vim'
-"Bundle 'L9'
-"Bundle 'FuzzyFinder'
-"Bundle 'tpope/vim-fugitive'
-"Bundle 'Lokaltog/vim-easymotion'
-"Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
-"Bundle 'tpope/vim-rails.git'
-"Bundle 'git://git.wincent.com/command-t.git'
+"Plugin 'hotchpotch/perldoc-vim'
+"Plugin 'JessicaKMcIntosh/perlhelp-vim'
+"Plugin 'L9'
+"Plugin 'FuzzyFinder'
+"Plugin 'tpope/vim-fugitive'
+"Plugin 'Lokaltog/vim-easymotion'
+"Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+"Plugin 'tpope/vim-rails.git'
+"Plugin 'git://git.wincent.com/command-t.git'
 " ...
 
-
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
 filetype plugin indent on     " required!
+
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
 "
 " Brief help
-" :BundleList          - list configured bundles
-" :BundleInstall(!)    - install(update) bundles
-" :BundleSearch(!) foo - search(or refresh cache first) for foo
-" :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
 "
 " see :h vundle for more details or wiki for FAQ
-" NOTE: comments after Bundle command are not allowed..
-
+" Put your non-Plugin stuff after this line
+" NOTE: comments after Plugin command are not allowed..
 
 "-- Functions --"
 "----------------------------------------------------------------------"
