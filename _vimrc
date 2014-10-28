@@ -619,6 +619,8 @@ Plugin 'jeetsukumaran/vim-nefertiti'
   "By default, META-2 (ALT-2 on some keyboards) increases the brightness of the text
   "while META-1 (ALT-1 on some keyboards) decreases the brightness of text.
   "These key-mappings can be suppressed and or customized:
+Plugin 'whatyouhide/vim-gotham'
+Plugin 'nice/sweater'
 
 "---- To Install
 "Plugin 'hotchpotch/perldoc-vim'
