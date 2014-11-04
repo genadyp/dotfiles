@@ -1,0 +1,74 @@
+#--------------------------------------------------------
+# User specific aliases
+#--------------------------------------------------------
+# DOS  to UNIX (removing CRs on Linux based OS that use GNU extensions)
+alias unix_eol="sed -i -e 's/\r$//'"
+
+alias grep='grep --color=auto'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+
+alias ls='ls -G' # Compact view, show colors
+alias la='ls -AF' # Compact view, show hidden
+alias lla='ls -al'
+alias ll='ls -l'
+alias l='ls'
+alias l1='ls -1'
+alias lh='ls -lh'
+alias ltr='ls -ltr'
+alias lrt=ltr
+alias ls="ls --color=auto"
+
+if [ `which colordiff 2>&1 | grep -q " no colordiff"; echo $?` -ge "1" ];
+then alias diff='colordiff'
+fi
+
+alias tree='tree -C'
+
+less='less -i'  # ignore case
+
+alias .='pwd'
+
+alias ..='cd ..' # Go up one directory
+alias ...='cd ../..' # Go up two directories
+alias ....='cd ../../..' # Go up three directories
+alias .4='cd ../../../../'
+alias -- -='cd -' # Go back
+
+# Shell History
+alias h='history'
+
+# Undo what you just did in git
+# Examples:
+# * Asking for undo-ing advice.
+#   > git init
+#   > gitjk
+#   This created a .git folder in the current directory. You can remove it.
+#   sudo rm -r .git
+# * Asking to fix it automatically
+#  >git add file.js
+#  >gitjk -f
+#  This added file.js to the changes staged for commit. All changes to file.js will
+#  be removed from
+#  staging for this commit, but remain saved in your file.
+#  Running... git rm -r --cached file.js
+#  Completed
+alias gitjk="history 10 | tail -r | gitjk_cmd"
+
+# Sends your file to the Gnome Wastebasket
+#alias rm='gvfs-trash'
+
+## pass options to free ##
+alias meminfo='free -m -l -t'
+
+## get top process eating memory
+alias psmem='ps auxf | sort -nr -k 4'
+alias psmem10='ps auxf | sort -nr -k 4 | head -10'
+
+## get top process eating cpu ##
+alias pscpu='ps auxf | sort -nr -k 3'
+alias pscpu10='ps auxf | sort -nr -k 3 | head -10'
+
+## Get server cpu info ##
+alias cpuinfo='lscpu'
+
