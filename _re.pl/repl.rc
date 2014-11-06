@@ -1,6 +1,9 @@
 use 5.012;
 use warnings;
 
+# Explanations:
+# http://www.xenoterracide.com/2010/07/making-repl-usable.html
+
 load_plugin qw(
     Colors
     Completion
