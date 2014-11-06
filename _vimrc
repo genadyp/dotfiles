@@ -124,6 +124,15 @@ Plugin 'suan/vim-instant-markdown'
   "instant-markdown.vim : Real-time Markdown previews from Vim!
   "https://github.com/suan/vim-instant-markdown
   "http://www.vim.org/scripts/script.php?script_id=3994
+  " Installation:
+  "     [sudo] gem install pygments.rb
+  "   If you're using Ruby 1.9.2 or later, 
+  "     [sudo] gem install redcarpet. 
+  "   Otherwise, 
+  "     [sudo] gem install redcarpet -v 2.3.0
+  "     [sudo] npm -g install instant-markdown-d
+  "   If you're on Linux, 
+  "     the xdg-utils package needs to be installed (is installed by default on Ubuntu).
 "Plugin 't9md/vim-quickhl'
   "quickhl.vim : Quickly highlight multiple word.
   "http://www.vim.org/scripts/script.php?script_id=3692
