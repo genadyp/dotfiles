@@ -1,6 +1,14 @@
 #--------------------------------------------------------
 # User specific aliases
 #--------------------------------------------------------
+#--------------------------------------------------------
+# TODO
+#--------------------------------------------------------
+# Consider to use colorers:
+# https://github.com/trapd00r/cope
+# https://github.com/rrthomas/cw
+# http://www.caliban.org/ruby/acoc.shtml
+
 # DOS  to UNIX (removing CRs on Linux based OS that use GNU extensions)
 alias unix_eol="sed -i -e 's/\r$//'"
 
@@ -8,14 +16,18 @@ alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 
+# TODO write a wrapper function for find
+#alias find='find -print0'
+#alias xargs='xargs -0'
+
 alias ls='ls -G' # Compact view, show colors
 alias la='ls -AF' # Compact view, show hidden
-alias lla='ls -al'
-alias ll='ls -l'
+alias lla='ls++ -a'
+alias ll='ls++'
 alias l='ls'
 alias l1='ls -1'
-alias lh='ls -lh'
-alias ltr='ls -ltr'
+alias lh='ls++ -h'
+alias ltr='ls++ -tr'
 alias lrt=ltr
 alias ls="ls --color=auto"
 
@@ -65,10 +77,18 @@ alias meminfo='free -m -l -t'
 alias psmem='ps auxf | sort -nr -k 4'
 alias psmem10='ps auxf | sort -nr -k 4 | head -10'
 
+# tree of processes for the $USER
+alias my_pstree='ps f -u $USER'
+
 ## get top process eating cpu ##
 alias pscpu='ps auxf | sort -nr -k 3'
 alias pscpu10='ps auxf | sort -nr -k 3 | head -10'
 
 ## Get server cpu info ##
 alias cpuinfo='lscpu'
+
+## Fixes zathura crash when opening entry in the index
+alias zathura='env GTK_MODULES= /usr/bin/zathura'
+
+alias open='xdg-open 2>/dev/null'
 

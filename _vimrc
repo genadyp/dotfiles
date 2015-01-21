@@ -126,12 +126,12 @@ Plugin 'suan/vim-instant-markdown'
   "http://www.vim.org/scripts/script.php?script_id=3994
   " Installation:
   "     [sudo] gem install pygments.rb
-  "   If you're using Ruby 1.9.2 or later, 
-  "     [sudo] gem install redcarpet. 
-  "   Otherwise, 
+  "   If you're using Ruby 1.9.2 or later,
+  "     [sudo] gem install redcarpet.
+  "   Otherwise,
   "     [sudo] gem install redcarpet -v 2.3.0
   "     [sudo] npm -g install instant-markdown-d
-  "   If you're on Linux, 
+  "   If you're on Linux,
   "     the xdg-utils package needs to be installed (is installed by default on Ubuntu).
 "Plugin 't9md/vim-quickhl'
   "quickhl.vim : Quickly highlight multiple word.
@@ -485,6 +485,7 @@ Plugin 'scrooloose/syntastic'
   let g:syntastic_enable_perl_checker = 1
   " Perl checkers must be added manually when enabling Perl checking
   let g:syntastic_perl_checkers = ['perl', 'podchecker']
+  let g:syntastic_perl_lib_path = [ './lib' ]
 
 "---- Version Control
 "Plugin 'airblade/vim-gitgutter'
@@ -630,6 +631,7 @@ Plugin 'jeetsukumaran/vim-nefertiti'
   "These key-mappings can be suppressed and or customized:
 Plugin 'whatyouhide/vim-gotham'
 Plugin 'nice/sweater'
+Plugin 'fmoralesc/vim-vitamins'
 
 "---- To Install
 "Plugin 'hotchpotch/perldoc-vim'
