@@ -632,6 +632,7 @@ Plugin 'jeetsukumaran/vim-nefertiti'
 Plugin 'whatyouhide/vim-gotham'
 Plugin 'nice/sweater'
 Plugin 'fmoralesc/vim-vitamins'
+Plugin 'Keithbsmiley/parsec.vim'
 
 "---- To Install
 "Plugin 'hotchpotch/perldoc-vim'
@@ -802,6 +803,21 @@ function SetWorkingArea()
   endif
 endfunction
 
+function OnColorScheme()
+  " Set ColorColumn same as LineNr
+  " Need for setting working area
+  if synIDattr(synIDtrans(hlID('ColorColumn')), 'fg') == ""
+    if synIDattr(synIDtrans(hlID('LineNr')), 'bg') != "" 
+      let l:guifg = synIDattr(synIDtrans(hlID('LineNr')), 'fg')
+      let l:guibg = synIDattr(synIDtrans(hlID('LineNr')), 'bg')
+      execute "hi ColorColumn ctermfg=White ctermbg=Black guifg=" . l:guifg . " guibg=" . l:guibg
+    else 
+      let l:guifg = synIDattr(synIDtrans(hlID('StatusLine')), 'fg')
+      let l:guibg = synIDattr(synIDtrans(hlID('StatusLine')), 'bg')
+      execute "hi ColorColumn ctermfg=White ctermbg=Black guifg=" . l:guifg . " guibg=" . l:guibg
+    endif
+  endif
+endfunction
 " ========== TERMINAL ===============================================
 " Disable Background Color Erase (BCE) so that color schemes work properly when Vim is used inside tmux and GNU screen.
 if &term =~ '256color'
@@ -884,9 +900,6 @@ nnoremap * :set hls<CR>:exec "let @/='\\<".expand("<cword>")."\\>'"<CR>
 :imap jj <esc>
 
 set shiftwidth=2 tabstop=2 expandtab smartindent cindent
-
-" Limit a working area with a vertical line
-autocmd BufNewFile,BufRead *.* call SetWorkingArea()
 
 "Line numbers
 set nu
@@ -1027,6 +1040,8 @@ endif
 "let &backupdir=my_backupdir.'//'"
 "set directory=my_backupdir.'//'"
 
+autocmd! ColorScheme * call OnColorScheme()
+
 " ========== BUFFERS MANAGMENT ===========================
 map <C-S-Right> :bnext<CR>
 map <C-S-Left> :bprevious<CR>
@@ -1097,6 +1112,9 @@ augroup Perl
     "or for modules when cursor is on 'use' or 'require' line.
     map <leader>pd :call PerlDoc()<CR>:set nomod<CR>:set filetype=man<CR>:echo "perldoc"<CR>
 augroup END
+
+" Limit a working area with a vertical line
+autocmd BufNewFile,BufRead * call SetWorkingArea()
 
 "-- Plagins --"
 "----------------------------------------------------------------------"
