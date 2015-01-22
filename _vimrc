@@ -806,19 +806,27 @@ endfunction
 function OnColorScheme()
   " Set ColorColumn same as LineNr
   " Need for setting working area
-  if synIDattr(synIDtrans(hlID('ColorColumn')), 'fg') == ""
-    if synIDattr(synIDtrans(hlID('LineNr')), 'bg') != "" 
+  let l:color_column_fg = synIDattr(synIDtrans(hlID('ColorColumn')), 'fg')
+  let l:color_column_bg = synIDattr(synIDtrans(hlID('ColorColumn')), 'bg')
+  if (has("gui_running") && l:color_column_fg == "") || (!has("gui_running") && l:color_column_fg == "-1")
+    let l:line_nr_bg = synIDattr(synIDtrans(hlID('LineNr')), 'bg')
+    if  (has("gui_running") && l:line_nr_bg != "") || (!has("gui_running") && l:line_nr_bg != "-1")
       let l:guifg = synIDattr(synIDtrans(hlID('LineNr')), 'fg')
       let l:guibg = synIDattr(synIDtrans(hlID('LineNr')), 'bg')
       execute "hi ColorColumn ctermfg=White ctermbg=Black guifg=" . l:guifg . " guibg=" . l:guibg
-    else 
+    else
       let l:guifg = synIDattr(synIDtrans(hlID('StatusLine')), 'fg')
       let l:guibg = synIDattr(synIDtrans(hlID('StatusLine')), 'bg')
       execute "hi ColorColumn ctermfg=White ctermbg=Black guifg=" . l:guifg . " guibg=" . l:guibg
     endif
   endif
 endfunction
+
 " ========== TERMINAL ===============================================
+if !has("gui_running")
+  colorscheme zenburn
+endif
+
 " Disable Background Color Erase (BCE) so that color schemes work properly when Vim is used inside tmux and GNU screen.
 if &term =~ '256color'
 set t_ut=
