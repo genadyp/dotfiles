@@ -510,19 +510,22 @@ Plugin 'sickill/vim-monokai'
 Plugin 'xoria256.vim'
    "xoria256.vim : Soft pastel gamma on dark background, same appearence in {,g}vim
    "http://www.vim.org/scripts/script.php?script_id=2140
-Plugin 'vim-scripts/darkslategray.vim'
-   "darkslategray.vim : Dark slate gray background, pastel colored text
-   "http://www.vim.org/scripts/script.php?script_id=149
+"Plugin 'vim-scripts/darkslategray.vim'
+   " darkslategray.vim : Dark slate gray background, pastel colored text
+   " http://www.vim.org/scripts/script.php?script_id=149
+   " Cyan colors
 Plugin 'veloce/vim-aldmeris'
    "aldmeris : A colorscheme based on oblivion for gedit that support GVIM and 256 colors term
    "http://www.vim.org/scripts/script.php?script_id=3673
    "https://github.com/veloce/vim-aldmeris
-Plugin 'moss'
-   "moss : Dark color scheme for low light conditions
-   "http://www.vim.org/scripts/script.php?script_id=2779
-Plugin 'Briofita'
+"Plugin 'moss'
+   " moss : Dark color scheme for low light conditions
+   " http://www.vim.org/scripts/script.php?script_id=2779
+   " Cyan colors
+"Plugin 'Briofita'
    "Briofita : a dark background GUI colorscheme
    "http://www.vim.org/scripts/script.php?script_id=4136
+   " Cyan colors
 Plugin 'junegunn/seoul256.vim'
    "seoul256.vim : A low-contrast Vim color scheme based on Seoul Colors
    "http://www.vim.org/scripts/script.php?script_id=4605
