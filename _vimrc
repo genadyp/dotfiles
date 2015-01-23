@@ -156,21 +156,35 @@ function SetWorkingArea()
   endif
 endfunction
 
+" Set ColorColumn highlighting if absent.
+" Need it for setting working area.
 function OnColorScheme()
-  " Set ColorColumn same as LineNr
-  " Need for setting working area
+  if has("gui_running")
+    let l:undefined = ""
+  else
+    let l:undefined = "-1"
+  endif
+
   let l:color_column_fg = synIDattr(synIDtrans(hlID('ColorColumn')), 'fg')
   let l:color_column_bg = synIDattr(synIDtrans(hlID('ColorColumn')), 'bg')
-  if (has("gui_running") && l:color_column_fg == "") || (!has("gui_running") && l:color_column_fg == "-1")
-    let l:line_nr_bg = synIDattr(synIDtrans(hlID('LineNr')), 'bg')
-    if  (has("gui_running") && l:line_nr_bg != "") || (!has("gui_running") && l:line_nr_bg != "-1")
-      let l:guifg = synIDattr(synIDtrans(hlID('LineNr')), 'fg')
-      let l:guibg = synIDattr(synIDtrans(hlID('LineNr')), 'bg')
-      execute "hi ColorColumn ctermfg=White ctermbg=Black guifg=" . l:guifg . " guibg=" . l:guibg
-    else
+
+  if l:color_column_fg == l:undefined
+    let l:guibg = synIDattr(synIDtrans(hlID('LineNr')), 'bg')
+    let l:guifg = synIDattr(synIDtrans(hlID('LineNr')), 'fg')
+
+    if  (l:guifg == l:undefined) && (l:guibg == l:undefined)
       let l:guifg = synIDattr(synIDtrans(hlID('StatusLine')), 'fg')
       let l:guibg = synIDattr(synIDtrans(hlID('StatusLine')), 'bg')
+    endif
+
+    if (l:guifg != l:undefined) && (l:guibg != l:undefined)
       execute "hi ColorColumn ctermfg=White ctermbg=Black guifg=" . l:guifg . " guibg=" . l:guibg
+    elseif l:guifg != l:undefined
+      execute "hi ColorColumn ctermfg=White ctermbg=Black guifg=" . l:guifg
+    elseif l:guibg != l:undefined
+      execute "hi ColorColumn ctermfg=White ctermbg=Black guibg=" . l:guibg
+    else
+      execute "hi ColorColumn ctermfg=White ctermbg=Black" 
     endif
   endif
 endfunction
@@ -346,10 +360,10 @@ map! <C-s> :call StripTrailingWhite() \| retab \| w<CR>
 imap <C-s> <C-\><C-O><C-s>
 
 " ========== MOVE, SEARCH & PATTERNS ===========================
-"set ignorecase  " ignore case when searching
+set ignorecase  " ignore case when searching
 set smartcase  " ignore case if search pattern is all lowercase, case-sensitive otherwise
-"set hlsearch  " highlight search terms
-"set incsearch  " show search matches as you type
+set hlsearch  " highlight search terms
+set incsearch  " show search matches as you type
 
 " ========== MOVE, SEARCH & PATTERNS ===========================
 "set history=1000 " remember more commands and search history
