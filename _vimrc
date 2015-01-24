@@ -168,13 +168,18 @@ function OnColorScheme()
   let l:color_column_fg = synIDattr(synIDtrans(hlID('ColorColumn')), 'fg')
   let l:color_column_bg = synIDattr(synIDtrans(hlID('ColorColumn')), 'bg')
 
-  if l:color_column_fg == l:undefined
+  if l:color_column_fg == l:undefined || matchstr(l:color_column_bg, "Red") != ""
     let l:guibg = synIDattr(synIDtrans(hlID('LineNr')), 'bg')
     let l:guifg = synIDattr(synIDtrans(hlID('LineNr')), 'fg')
 
-    if  (l:guifg == l:undefined) && (l:guibg == l:undefined)
+    if ((l:guifg == l:undefined) && (l:guibg == l:undefined)) || matchstr(l:guibg, "Red") != ""
       let l:guifg = synIDattr(synIDtrans(hlID('StatusLine')), 'fg')
       let l:guibg = synIDattr(synIDtrans(hlID('StatusLine')), 'bg')
+    endif
+
+    if matchstr(l:guibg, "Red") != ""
+      let l:guifg = "White"
+      let l:guibg = "Black"
     endif
 
     if (l:guifg != l:undefined) && (l:guibg != l:undefined)
@@ -184,7 +189,8 @@ function OnColorScheme()
     elseif l:guibg != l:undefined
       execute "hi ColorColumn ctermfg=White ctermbg=Black guibg=" . l:guibg
     else
-      execute "hi ColorColumn ctermfg=White ctermbg=Black" 
+      execute "hi ColorColumn ctermfg=White ctermbg=Black"
+      "execute "hi ColorColumn ctermfg=White ctermbg=Black guifg=White guibg=Black"
     endif
   endif
 endfunction
