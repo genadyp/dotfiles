@@ -582,7 +582,8 @@ Plugin 'watermark'
 Plugin 'yellow'
    "yellow : A yellow-green color scheme
    "http://www.vim.org/scripts/script.php?script_id=1474
-Plugin 'adobe.vim'
+"Plugin 'adobe.vim'
+Plugin 'genadyp/adobe.vim'
    "adobe.vim : Adobe theme, easy on eyes. Coloring philosophy inside
    "https://github.com/vim-scripts/adobe.vim
    "http://www.vim.org/scripts/script.php?script_id=1365
