@@ -172,7 +172,7 @@ function OnColorScheme()
     let l:guibg = synIDattr(synIDtrans(hlID('LineNr')), 'bg')
     let l:guifg = synIDattr(synIDtrans(hlID('LineNr')), 'fg')
 
-    if ((l:guifg == l:undefined) && (l:guibg == l:undefined)) || matchstr(l:guibg, "Red") != ""
+    if ((l:guifg == l:undefined) || (l:guibg == l:undefined)) || matchstr(l:guibg, "Red") != ""
       let l:guifg = synIDattr(synIDtrans(hlID('StatusLine')), 'fg')
       let l:guibg = synIDattr(synIDtrans(hlID('StatusLine')), 'bg')
     endif
