@@ -140,6 +140,9 @@ function! ToggleBg()
       set background=dark
     endif
   endif
+  if exists("g:colors_name")
+    exe "colorscheme " . g:colors_name
+  endif
 endfunc
 
 " Limit a working area with a vertical line
@@ -172,7 +175,7 @@ function OnColorScheme()
     let l:guibg = synIDattr(synIDtrans(hlID('LineNr')), 'bg')
     let l:guifg = synIDattr(synIDtrans(hlID('LineNr')), 'fg')
 
-    if ((l:guifg == l:undefined) || (l:guibg == l:undefined)) || matchstr(l:guibg, "Red") != ""
+    if ((l:guibg == l:undefined)) || matchstr(l:guibg, "Red") != ""
       let l:guifg = synIDattr(synIDtrans(hlID('StatusLine')), 'fg')
       let l:guibg = synIDattr(synIDtrans(hlID('StatusLine')), 'bg')
     endif
@@ -430,7 +433,7 @@ imap <C-S-Right> <ESC>:bnext<CR>
 imap <C-S-Left> <ESC>:bprevious<CR>
 
 " ========== GROUPS ===========================
-au! BufRead,BufNewFile *.tex set filetype=tex
+au! BufRead,BufNewFile *.{tex,tikz} set filetype=tex
 augroup TeX
     autocmd!
     autocmd BufNewFile,BufRead *.tex call TexAbbs()

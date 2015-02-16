@@ -68,8 +68,6 @@ if [ "$LS_COLORS" = "" ]; then
   export LS_COLORS
 fi
 
-alias vi=vim
-
 rvm use ruby-2.1.4
 
 # Set vi mode

@@ -9,6 +9,8 @@
 # https://github.com/rrthomas/cw
 # http://www.caliban.org/ruby/acoc.shtml
 
+alias vi=vim
+
 # DOS  to UNIX (removing CRs on Linux based OS that use GNU extensions)
 alias unix_eol="sed -i -e 's/\r$//'"
 
