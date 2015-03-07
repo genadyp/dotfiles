@@ -36,24 +36,10 @@ export LD_LIBRARY_PATH=/usr/local/lib:/usr/lib64:$LD_LIBRARY_PATH
 # source /home/genadyp/.rvm/scripts/rvm
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
-# Version control definitions
-export CVSROOT=genadyp@lnx-contest2.haifa.ibm.com:/gpfs/haifa/projects/s/stest/contest/cvsroot
-export CMVC_FAMILY=s390sub1@heckle.pok.ibm.com@13009  # omvs, consol, xes/xcf
-#export CMVC_FAMILY=s390sub2@pokcmvc3.pok.ibm.com@13010  # pki, icsf, racf
-#export CMVC_FAMILY=taz@pokcmvc3.pok.ibm.com@13012
-#export CMVC_FAMILY=dfsms@tuccmvc02.tucson.ibm.com@13015  # nfs
-#export CMVC_FAMILY=dcemvs@pokcmvc3.pok.ibm.com@6070  # zfs, smb
-#export CMVC_FAMILY=s390pok2@pokcmvc3.pok.ibm.com@13011
-export CMVC_AUTH_METHOD=PW
-
-# IBM definitions
-export GPFS_HOME=/gpfs/haifa/home/g/e/genadyp
-
 # Java definitions
-#export JAVA_HOME=$(readlink -f /usr/bin/java | sed "s:bin/java::")
 #export JAVA_HOME=/etc/alternatives/java_sdk_1.6.0/
-export JUNIT_HOME=/home/genadyp/Downloads/App/jar/junit4.10
-export CLASSPATH=$CLASSPATH:$JUNIT_HOME/junit-4.10.jar
+#export JUNIT_HOME=/home/genadyp/Downloads/App/jar/junit4.10
+#export CLASSPATH=$CLASSPATH:$JUNIT_HOME/junit-4.10.jar
 
 # \[\e[01;37m\]\w\[\e[0m\]  pwd in bold and white
 # \[\e[01;32m\]\w\[\e[0m\]  pwd in bold and green
@@ -68,10 +54,28 @@ if [ "$LS_COLORS" = "" ]; then
   export LS_COLORS
 fi
 
-rvm use ruby-2.1.4
+rvm use ruby-2.2.0
 
 # Set vi mode
 #set -o vi
+
+# Colorfull output for less
+export PAGER=less
+export LESS_TERMCAP_mb=$'\033[01;31m'
+export LESS_TERMCAP_md=$'\033[01;31m'
+export LESS_TERMCAP_me=$'\033[0m'
+export LESS_TERMCAP_se=$'\033[0m'
+export LESS_TERMCAP_so=$'\033[01;44;33m'
+export LESS_TERMCAP_ue=$'\033[0m'
+export LESS_TERMCAP_us=$'\033[01;32m'
+
+if [ -f ~/dotfiles/_bash_aliases ]; then
+  . ~/dotfiles/_bash_aliases
+fi
+
+if [ -f ~/dotfiles/_bash_functions ]; then
+  . ~/dotfiles/_bash_functions
+fi
 
 #--------------------------------------------------------
 # Outdated
