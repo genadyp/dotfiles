@@ -1,0 +1,55 @@
+Plugin 'FavEx'
+  "Favorite file and directory explorer
+  "
+Plugin 'LanguageTool'
+  "LanguageTool : Grammar checker for English, French, German (etc.) in Vim
+  "http://www.vim.org/scripts/script.php?script_id=3223
+  let g:languagetool_jar='/home/genadyp/Downloads/App/LanguageTool/LanguageTool-2.2/languagetool-commandline.jar'
+  "map <leader>lt :LanguageToolCheck<CR>
+  "map <leader>lc :LanguageToolClear<CR>
+  "
+Plugin 'goldfeld/vim-seek'
+  "Seek makes navigating long lines effortless, acting like f but taking two characters.
+  "Seek is a vim plugin that aims to be your go-to characterwise motion workhorse.
+  "The motion seek, summoned with <s> by default.
+  "https://github.com/goldfeld/vim-seek
+
+Plugin 'Specky'
+  "Functions to help make behavioral testing easy with ruby and rspec.
+
+"Plugin 'pjcj/vim-hl-var'
+  " Highlight all instances of the Perl variable under the cursor.
+  " The variables will be highlighted after you have not performed any action
+  " for a certain length of time.
+  " That time is controlled by the updatetime setting.
+  " You can customise the highlighting applied by this plugin by using the
+  " hlvarhl global variable.
+  " This can be set in your .vimrc file:
+  " let g:hlvarhl="ctermbg=black ctermfg=red guifg=#ff0000 guibg=#000000 gui=bold"
+  " If you don't want the variable under cursor to be highlighted,
+  " you can disable it by setting variable g:hlvarcurrent to 1.
+  " let g:hlvarcurrent = 1
+  "set updatetime=500
+"Plugin 'genadyp/vawa.vim'
+  " Highlight all instances of the Perl variable under the cursor.
+
+"""""""""""""""
+" Colors
+"""""""""""""""
+"Plugin 'genadyp/atelier_colors'
+   "fork of atelier-schemes for vim
+"Plugin 'genadyp/vim-tomorrow-theme'
+  " breaks solorized theme
+"Plugin 'adobe.vim'
+"Plugin 'Briofita'
+   "Briofita : a dark background GUI colorscheme
+   "http://www.vim.org/scripts/script.php?script_id=4136
+   " Cyan colors
+"Plugin 'moss'
+   " moss : Dark color scheme for low light conditions
+   " http://www.vim.org/scripts/script.php?script_id=2779
+   " Cyan colors
+"Plugin 'vim-scripts/darkslategray.vim'
+   " darkslategray.vim : Dark slate gray background, pastel colored text
+   " http://www.vim.org/scripts/script.php?script_id=149
+   " Cyan colors

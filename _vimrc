@@ -70,25 +70,27 @@ function ToggleFullScreen()
 endfunction
 
 function TexAbbs()
-  iab <buffer> L $\mathcal{L}$($P_1$,$P_2$)
+  iab <buffer> LP1P2 $\mathcal{L}$($P_1$,$P_2$)
   iab <buffer> Lstar $\mathcal{L}^*$($P_1$,$P_2$)
+  iab <buffer> L $\mathcal{L}$
   iab <buffer> H $\mathcal{H}$
   iab <buffer> W $\mathcal{W}$
+  iab <buffer> WB $\mathcal{W}_\mathcal{B}$
   iab <buffer> S $\mathcal{S}$
   iab <buffer> B $\mathcal{B}$
   iab <buffer> C $\mathcal{C}$
   iab <buffer> G $\mathcal{G}$
   iab <buffer> newG $\hat{\mathcal{G}}$
   iab <buffer> F $\mathcal{F}$
-  iab <buffer> Hs $\mathcal{H}_s$
-  iab <buffer> newHs $\hat{\mathcal{H}_s}$
-  iab <buffer> Fs $\mathcal{F}_s$
-  iab <buffer> newFs $\hat{\mathcal{F}_s}$
+  iab <buffer> Hs $\mathcal{H}_S$
+  iab <buffer> newHs $\hat{\mathcal{H}}_S$
+  iab <buffer> Fs $\mathcal{F}_S$
+  iab <buffer> newFs $\hat{\mathcal{F}}_S$
   iab <buffer> Tl $T_{laminar}$
   iab <buffer> eps $\varepsilon$
-  iab <buffer> pi $\pi$
-  iab <buffer> phi $\varphi_s$
-  iab <buffer> phii $\varphi_s^{-1}$
+  iab <buffer> pai $\pi_S$
+  iab <buffer> phi $\varphi_S$
+  iab <buffer> phii $\varphi_S^{-1}$
   iab <buffer> Ui $U_i$
   iab <buffer> U1 $U_1$
   iab <buffer> U2 $U_2$
@@ -98,9 +100,9 @@ function TexAbbs()
   iab <buffer> Pi $P_i$
   iab <buffer> P1 $P_1$
   iab <buffer> P2 $P_2$
-  iab <buffer> pi $p_i$
   iab <buffer> p1 $p_1$
   iab <buffer> p2 $p_2$
+  iab <buffer> pi $p_i$
   iab <buffer> ei $e_i$
   iab <buffer> e1 $e_1$
   iab <buffer> e2 $e_2$
