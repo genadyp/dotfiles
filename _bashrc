@@ -15,6 +15,7 @@ fi
 #--------------------------------------------------------
 PATH=./:$PATH
 PATH=$HOME/.rvm/bin:$PATH # Add RVM to PATH for scripting
+PATH=$PATH:$HOME/scripts
 PATH=$PATH:/home/genadyp/Downloads/App/Maven/apache-maven-3.0.5/bin
 PATH=$PATH:/usr/local/bin
 PATH=$PATH:/home/genadyp/Downloads/App/GWT/gwt-2.6.0

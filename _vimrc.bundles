@@ -255,6 +255,7 @@ Plugin 'LaTeX-Box-Team/LaTeX-Box'
   let g:LatexBox_latexmk_async = 1
   let g:LatexBox_latexmk_preview_continuously = 1
   let g:LatexBox_show_warnings = 0
+  "let g:LatexBox_output_type = "dvi"
   let g:LatexBox_output_type = "pdf"
   "
   "Supports reverse search
@@ -263,11 +264,14 @@ Plugin 'LaTeX-Box-Team/LaTeX-Box'
   "http://hermitte.free.fr/vim/ressources/vimfiles/ftplugin/tex/tex-tools_vim.html
   "NOTE gvim must be run with --servername vimtex
   "let g:LatexBox_viewer = 'xdvi -editor "gvim --servername vimtex --remote +\%l \%f"'
-  let g:LatexBox_viewer = 'zathura - -x "gvim +%{line} %{input}"'
+  "let g:LatexBox_viewer = 'zathura -x "gvim --servername vimtex -c \"let g:syncpdf=\'Thesis.pdf\'\" --remote +%{line} %{input}" Thesis.pdf'
+  let g:LatexBox_viewer = 'zathura -x "gvim --servername vimtex --remote +\%l \%f"'
 
   "Forward search
   "map <leader>ld :silent execute '!xdvi -editor "gvim --servername 'v:servername' --remote-wait +\%l \%f" -sourceposition ' . line(".") . expand("%") . " "  b:main_dvi_file<CR>
-  map <leader>ld :silent execute '!zathura --synctex-forward ' . line(".") . ":1:" . b:main_tex_file . " " . b:main_pdf_file<CR>
+  "map <leader>ld :silent execute '!zathura --synctex-forward ' . line(".") . ":1:" . b:main_tex_file . " " . b:main_pdf_file<CR>
+  "map <leader>ld :silent execute "!zathura --synctex-forward " . line('.') . ":" . col('.') . ":" . bufname('%') . " " . b:main_pdf_file<CR><CR>
+  map <leader>ld :execute "silent !zathura --synctex-forward " . line('.') . ":" . col('.') . ":" . bufname('%') . " " . g:syncpdf<CR><CR>
 
 Plugin 'elzr/vim-json'
   "A syntax highlighting file for JSON
