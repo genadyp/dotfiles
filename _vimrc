@@ -70,23 +70,22 @@ function ToggleFullScreen()
 endfunction
 
 function TexAbbs()
-  iab <buffer> LP1P2 $\mathcal{L}$($P_1$,$P_2$)
-  iab <buffer> Lstar $\mathcal{L}^*$($P_1$,$P_2$)
-  iab <buffer> L $\mathcal{L}$
+  iab <buffer> LP1P2 $\mathcal{L}(P_1,P_2)$
+  iab <buffer> Lstar $\mathcal{L}^{*}(P_1,P_2)$
   iab <buffer> H $\mathcal{H}$
   iab <buffer> W $\mathcal{W}$
   iab <buffer> WB $\mathcal{W}_\mathcal{B}$
   iab <buffer> S $\mathcal{S}$
   iab <buffer> B $\mathcal{B}$
   iab <buffer> C $\mathcal{C}$
-  iab <buffer> G $\mathcal{G}$
+  iab <buffer> G $G$
   iab <buffer> newG $\hat{\mathcal{G}}$
   iab <buffer> F $\mathcal{F}$
   iab <buffer> Hs $\mathcal{H}_S$
   iab <buffer> newHs $\hat{\mathcal{H}}_S$
   iab <buffer> Fs $\mathcal{F}_S$
   iab <buffer> newFs $\hat{\mathcal{F}}_S$
-  iab <buffer> Tl $T_{laminar}$
+  iab <buffer> Tl $\mathcal{T_{laminar}}$
   iab <buffer> eps $\varepsilon$
   iab <buffer> pai $\pi_S$
   iab <buffer> phi $\varphi_S$
