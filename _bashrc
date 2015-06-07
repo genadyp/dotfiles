@@ -75,7 +75,7 @@ if [ -f ~/dotfiles/_bash_aliases ]; then
 fi
 
 if [ -f ~/dotfiles/_bash_functions ]; then
-  . ~/dotfiles/_bash_functions
+  source ~/dotfiles/_bash_functions
 fi
 
 #--------------------------------------------------------

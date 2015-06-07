@@ -468,6 +468,8 @@ Plugin 'nice/sweater'
 Plugin 'fmoralesc/vim-vitamins'
 Plugin 'Keithbsmiley/parsec.vim'
 Plugin 'freeo/vim-kalisi'
+Plugin 'google/vim-colorscheme-primary'
+
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
