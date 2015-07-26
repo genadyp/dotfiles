@@ -13,6 +13,8 @@ fi
 #--------------------------------------------------------
 # User specific definitions
 #--------------------------------------------------------
+export GOPATH=/home/genadyp/Dev/go
+
 PATH=./:$PATH
 PATH=$HOME/.rvm/bin:$PATH # Add RVM to PATH for scripting
 PATH=$PATH:$HOME/scripts
@@ -22,6 +24,7 @@ PATH=$PATH:/home/genadyp/Downloads/App/GWT/gwt-2.6.0
 PATH=$PATH:/home/genadyp/Downloads/App/HtmlTidy/tidy/bin
 PATH=$PATH:/home/genadyp/Downloads/App/JavaCheckstyle/checkstyle-5.5
 PATH=$PATH:/home/genadyp/Downloads/App/LanguageTool/LanguageTool-2.2/
+export PATH=$PATH:$GOPATH/bin
 
 # Set 256 color for Gnome terminal and Terminator.
 if [ $TERM == "xterm"  ] ; then
@@ -76,6 +79,10 @@ fi
 
 if [ -f ~/dotfiles/_bash_functions ]; then
   source ~/dotfiles/_bash_functions
+fi
+
+if [ -f ~/dotfiles/git-completion.bash ]; then
+  source ~/dotfiles/git-completion.bash
 fi
 
 #--------------------------------------------------------

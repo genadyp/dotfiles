@@ -69,6 +69,16 @@ function ToggleFullScreen()
   endif
 endfunction
 
+" Toggle between absolute and relative 
+" line numbers
+function! NumberToggle()
+  if(&relativenumber == 1)
+    set number
+  else
+    set relativenumber
+  endif
+endfunc
+
 function TexAbbs()
   iab <buffer> LP1P2 $\mathcal{L}(P_1,P_2)$
   iab <buffer> Lstar $\mathcal{L}^{*}(P_1,P_2)$
@@ -286,8 +296,6 @@ nnoremap * :set hls<CR>:exec "let @/='\\<".expand("<cword>")."\\>'"<CR>
 
 set shiftwidth=2 tabstop=2 expandtab smartindent cindent
 
-"Line numbers
-set nu
 "To prevent problems while running on Linux scripts edited on Windows
 set fileformat=unix
 "Always get a status line
@@ -349,10 +357,26 @@ vnoremap < <gv
 " Select last paste in visual mode
 nnoremap <expr> gb '`[' . strpart(getregtype(), 0, 1) . '`]'
 
+" ========== Line numbers ======================================
+set nu
+
+" Replace withjeffkreeftmeijer/vim-numbertoggle plugin 
+nnoremap <C-n> :call NumberToggle()<cr>
+
+"A quick solution is to automatically switch to absolute line numbers 
+"whenever Vim loses focus, since we don’t really care about the relative 
+"line numbers unless we’re moving around.
+:au FocusLost * :set number
+:au FocusGained * :set relativenumber
+
+"Tell Vim to automatically use absolute line numbers when we’re in insert mode 
+"and relative numbers when we’re in normal modeautocmd InsertEnter * :set number
+autocmd InsertLeave * :set relativenumber
+
 " ========== MOUSE =============================================
 set mouse=a " Enable mouse usage (all modes).
 
-" ========== RETAB, TRAILING WHITESPACES =============================================
+" ========== RETAB, TRAILING WHITESPACES =======================
 "Automatically retab
 autocmd BufWritePre  *.{cpp,h,c,rb,java,pl}  :retab
 autocmd FileAppendPre *.{cpp,h,c,rb,java,pl}  :retab

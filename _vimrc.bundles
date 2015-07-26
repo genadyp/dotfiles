@@ -158,6 +158,15 @@ Plugin 'junegunn/goyo.vim'
   endfunction
   let g:goyo_callbacks = [function('Goyo_before'), function('Goyo_after')]
 
+Plugin 'jeffkreeftmeijer/vim-numbertoggle'  
+" Toggles between relative and absolute line numbers automatically.
+" http://jeffkreeftmeijer.com/2012/relative-line-numbers-in-vim-for-super-fast-movement/
+" In case g:UseNumberToggleTrigger is unset or true, NumberToggle sets
+" up <C-n> to toggle from absolute to relative line numbers.
+" You can set up another trigger if you prefer. If you want to
+" toggle using <F2>, for example, put this into your ~/.vimrc file:
+"   let g:NumberToggleTrigger="<F2>"
+
 "---- Coding
 Plugin 'vim-scripts/AutoComplPop'
   " Automatically opens popup menu for completions

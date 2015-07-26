@@ -50,7 +50,7 @@ alias .4='cd ../../../../'
 alias -- -='cd -' # Go back
 
 # Shell History
-alias h='history'
+#alias h='history'
 
 # Undo what you just did in git
 # Examples:
