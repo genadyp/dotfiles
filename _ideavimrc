@@ -1,0 +1,42 @@
+
+"Remove all highlighting
+nnoremap & :nohls<CR>
+
+"Shows all occurences of the underlying word
+nnoremap * :set hls<CR>:exec "let @/='\\<".expand("<cword>")."\\>'"<CR>
+
+"To add a blank line below or above and keep the cursor in place
+nmap <S-Enter> m`O<Esc>``
+nmap <C-Enter> m`o<Esc>``
+"Insert new line in insert mode without breaking current line
+imap <S-Enter> <Esc><S-Enter>li
+imap <C-Enter> <Esc><C-Enter>li
+
+"If you still want to retain the visual selection after having pressed > or <,
+"you can use these mappings \
+vnoremap > >gv
+vnoremap < <gv
+
+" ========== Line numbers ======================================
+set nu
+
+" Replace withjeffkreeftmeijer/vim-numbertoggle plugin 
+nnoremap <C-n> :call NumberToggle()<cr>
+
+"A quick solution is to automatically switch to absolute line numbers 
+"whenever Vim loses focus, since we don’t really care about the relative 
+"line numbers unless we’re moving around.
+:au FocusLost * :set number
+:au FocusGained * :set relativenumber
+
+"Tell Vim to automatically use absolute line numbers when we’re in insert mode 
+"and relative numbers when we’re in normal modeautocmd InsertEnter * :set number
+autocmd InsertLeave * :set relativenumber
+
+" ========== MOVE, SEARCH & PATTERNS ===========================
+set ignorecase  " ignore case when searching
+set smartcase  " ignore case if search pattern is all lowercase, case-sensitive otherwise
+set hlsearch  " highlight search terms
+set incsearch  " show search matches as you type
+
+

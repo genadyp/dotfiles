@@ -260,7 +260,7 @@ if has('gui_running')
   "set linespace=2  " Number of pixel lines to use between lines.
 
   colorscheme solarized
-  set background=light
+  set background=dark
 
   nnoremap <F11> :call ToggleFullScreen()<CR>
   inoremap <F11> :call ToggleFullScreen()<CR>
@@ -463,7 +463,7 @@ augroup TeX
     autocmd!
     autocmd BufNewFile,BufRead *.tex call TexAbbs()
     autocmd BufNewFile,BufRead *.tex setlocal spell!
-    autocmd BufNewFile,BufRead *.tex silent exe "cd " . g:main_tex_dir
+    "autocmd BufNewFile,BufRead *.tex silent exe "cd " . g:main_tex_dir
     autocmd BufNewFile,BufRead *.tex call SetWorkingArea()
     au Filetype tex let b:AutoPairs = {"$": "$"}
 augroup END

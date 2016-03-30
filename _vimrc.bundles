@@ -256,11 +256,12 @@ Plugin 'LaTeX-Box-Team/LaTeX-Box'
   "LaTeX Box : Lightweight Toolbox for LaTeX
   "http://www.vim.org/scripts/script.php?script_id=3109
   "https://github.com/LaTeX-Box-Team/LaTeX-Box
+
   "NOTE hardcoded for current TeX project
-  let g:main_tex_dir =  '/home/genadyp/Documents/Thesis/Thesis'
-  let b:main_tex_file = g:main_tex_dir . '/Thesis.tex'
-  let b:main_dvi_file = g:main_tex_dir . '/Thesis.dvi'
-  let b:main_pdf_file = g:main_tex_dir . '/Thesis.pdf'
+  "let g:main_tex_dir =  '/home/genadyp/Documents/Thesis/Thesis'
+  "let b:main_tex_file = g:main_tex_dir . '/Thesis.tex'
+  "let b:main_dvi_file = g:main_tex_dir . '/Thesis.dvi'
+  "let b:main_pdf_file = g:main_tex_dir . '/Thesis.pdf'
   let g:LatexBox_latexmk_async = 1
   let g:LatexBox_latexmk_preview_continuously = 1
   let g:LatexBox_show_warnings = 0
@@ -320,6 +321,7 @@ Plugin 'ri-viewer'
   "  :RiCore
   "  :RiGem
   "  :RiHome
+  let ri_prog = '/home/genadyp/.rvm/rubies/default/bin/ri'
 Plugin 'c9s/perlomni.vim'
   " perl omnicompletion for vim
   " https://github.com/c9s/perlomni.vim
