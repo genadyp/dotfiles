@@ -480,6 +480,15 @@ Plugin 'fmoralesc/vim-vitamins'
 Plugin 'Keithbsmiley/parsec.vim'
 Plugin 'freeo/vim-kalisi'
 Plugin 'google/vim-colorscheme-primary'
+Plugin 'adelarsq/vim-grimmjow'
+Plugin 'blindFS/flattr.vim'
+Plugin 'vim-scripts/caramel.vim'
+Plugin 'KKPMW/moonshine-vim'
+Plugin 'geetarista/ego.vim'
+Plugin 'NLKNguyen/papercolor-theme'
+Plugin 'sjl/badwolf'
+Plugin 'mbbill/vim-seattle'
+Plugin 'andbar-ru/vim-unicon'
 
 
 " All of your Plugins must be added before the following line

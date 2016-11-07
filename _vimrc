@@ -47,7 +47,6 @@ endfunction
 
 function EnableFullScreen()
   if &go =~ 'e'
-    exec('silent !wmctrl -r :ACTIVE: -b add,fullscreen')
     exec('set go-=e')
   endif
 endfunction
@@ -55,6 +54,7 @@ endfunction
 function DisableFullScreen()
   if &go !~ 'e'
     exec('silent !wmctrl -r :ACTIVE: -b remove,fullscreen')
+    exec('silent !wmctrl -r :ACTIVE: -b add,fullscreen')
     exec('set go+=e')
   endif
 endfunction
@@ -78,63 +78,6 @@ function! NumberToggle()
     set relativenumber
   endif
 endfunc
-
-function TexAbbs()
-  iab <buffer> LP1P2 $\mathcal{L}(P_1,P_2)$
-  iab <buffer> Lstar $\mathcal{L}^{*}(P_1,P_2)$
-  iab <buffer> H $\mathcal{H}$
-  iab <buffer> W $\mathcal{W}$
-  iab <buffer> WB $\mathcal{W}_\mathcal{B}$
-  iab <buffer> S $\mathcal{S}$
-  iab <buffer> B $\mathcal{B}$
-  iab <buffer> C $\mathcal{C}$
-  iab <buffer> G $G$
-  iab <buffer> newG $\hat{\mathcal{G}}$
-  iab <buffer> F $\mathcal{F}$
-  iab <buffer> Hs $\mathcal{H}_S$
-  iab <buffer> newHs $\hat{\mathcal{H}}_S$
-  iab <buffer> Fs $\mathcal{F}_S$
-  iab <buffer> newFs $\hat{\mathcal{F}}_S$
-  iab <buffer> Tl $\mathcal{T_{laminar}}$
-  iab <buffer> eps $\varepsilon$
-  iab <buffer> pai $\pi_S$
-  iab <buffer> phi $\varphi_S$
-  iab <buffer> phii $\varphi_S^{-1}$
-  iab <buffer> Ui $U_i$
-  iab <buffer> U1 $U_1$
-  iab <buffer> U2 $U_2$
-  iab <buffer> ui $u_i$
-  iab <buffer> u1 $u_1$
-  iab <buffer> u2 $u_2$
-  iab <buffer> Pi $P_i$
-  iab <buffer> P1 $P_1$
-  iab <buffer> P2 $P_2$
-  iab <buffer> p1 $p_1$
-  iab <buffer> p2 $p_2$
-  iab <buffer> pi $p_i$
-  iab <buffer> ei $e_i$
-  iab <buffer> e1 $e_1$
-  iab <buffer> e2 $e_2$
-  iab <buffer> Ni $N_i$
-  iab <buffer> N0 $N_0$
-  iab <buffer> N1 $N_1$
-  iab <buffer> N2 $N_2$
-  iab <buffer> N' $N^{'}$
-  iab <buffer> N" $N^{''}$
-  iab <buffer> ni $n_i$
-  iab <buffer> n1 $n_1$
-  iab <buffer> n2 $n_2$
-  iab <buffer> C1 $C_1$
-  iab <buffer> C2 $C_2$
-  iab <buffer> C3 $C_3$
-  iab <buffer> Cn $C_n$
-  iab <buffer> __ \\ \hspace*{1em}
-  iab <buffer> Unew $U^{new}$
-  iab <buffer> Nnew $N^{new}$
-  iab <buffer> ... $\cdots$
-  iab <buffer> ,... ,$\cdots$
-  iab <buffer> QED $\blacksquare$
-endfunction
 
 "Toggle background
 function! ToggleBg()
@@ -207,21 +150,23 @@ function OnColorScheme()
       "execute "hi ColorColumn ctermfg=White ctermbg=Black guifg=White guibg=Black"
     endif
   endif
+  execute "hi ColorColumn ctermfg=White ctermbg=Black"
 endfunction
 
 " ========== TERMINAL ===============================================
 if !has("gui_running")
-  colorscheme zenburn
+  "colorscheme zenburn
+  colorscheme apprentice
 endif
 
 " Disable Background Color Erase (BCE) so that color schemes work properly when Vim is used inside tmux and GNU screen.
-if &term =~ '256color'
-set t_ut=
-endif
+"if &term =~ '256color'
+  "set t_ut=
+"endif
 
-if $TERM == "xterm-256color" || $TERM == "screen-256color" || $COLORTERM == "gnome-terminal"
+"if $TERM == 'xterm-256color' || $TERM == 'screen-256color' || $COLORTERM == 'gnome-terminal'
   set t_Co=256
-endif
+"endif
 
 " Tmux will send xterm-style keys when its xterm-keys option is on.
 if &term =~ '^screen'
@@ -300,6 +245,8 @@ set shiftwidth=2 tabstop=2 expandtab smartindent cindent
 set fileformat=unix
 "Always get a status line
 set laststatus=2
+" print current column
+set statusline+=col:\ %c
 "let mapleader = ","
 " make backspace work like most other apps
 set backspace=2
@@ -461,7 +408,7 @@ imap <C-S-Left> <ESC>:bprevious<CR>
 au! BufRead,BufNewFile *.{tex,tikz} set filetype=tex
 augroup TeX
     autocmd!
-    autocmd BufNewFile,BufRead *.tex call TexAbbs()
+    "autocmd BufNewFile,BufRead *.tex call TexAbbs()
     autocmd BufNewFile,BufRead *.tex setlocal spell!
     "autocmd BufNewFile,BufRead *.tex silent exe "cd " . g:main_tex_dir
     autocmd BufNewFile,BufRead *.tex call SetWorkingArea()

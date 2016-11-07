@@ -37,9 +37,13 @@ fi
 export PKG_CONFIG_PATH=/usr/lib/pkgconfig:/usr/local/lib/pkgconfig:/usr/lib64/pkgconfig:$PKG_CONFIG_PATH
 export LD_LIBRARY_PATH=/usr/local/lib:/usr/lib64:$LD_LIBRARY_PATH
 
+export HISTSIZE=5000
+export HISTFILESIZE=10000
+
 ######################
 # Java
 ######################
+#export SWT_GTK3=0
 #export JAVA_HOME=/etc/alternatives/java_sdk_1.6.0/
 #export JUNIT_HOME=/home/genadyp/Downloads/App/jar/junit4.10
 #export CLASSPATH=$CLASSPATH:$JUNIT_HOME/junit-4.10.jar
@@ -89,8 +93,12 @@ if [ -f ~/dotfiles/_bash_functions ]; then
   source ~/dotfiles/_bash_functions
 fi
 
+# auto-completion
 if [ -f ~/dotfiles/git-completion.bash ]; then
   source ~/dotfiles/git-completion.bash
+fi
+if [ -f ~/dotfiles/ssh-completion ]; then
+  source ~/dotfiles/ssh-completion
 fi
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!

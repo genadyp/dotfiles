@@ -19,6 +19,7 @@ vnoremap < <gv
 
 " ========== Line numbers ======================================
 set nu
+set rnu
 
 " Replace withjeffkreeftmeijer/vim-numbertoggle plugin 
 nnoremap <C-n> :call NumberToggle()<cr>
