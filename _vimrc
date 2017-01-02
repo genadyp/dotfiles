@@ -239,7 +239,7 @@ nnoremap * :set hls<CR>:exec "let @/='\\<".expand("<cword>")."\\>'"<CR>
 "Remap ESC to jj
 :imap jj <esc>
 
-set shiftwidth=2 tabstop=2 expandtab smartindent cindent
+set shiftwidth=4 tabstop=4 expandtab smartindent cindent
 
 "To prevent problems while running on Linux scripts edited on Windows
 set fileformat=unix
@@ -339,6 +339,8 @@ autocmd FilterWritePre  *.{cpp,h,c,rb,java,pl}  call StripTrailingWhite()
 map <C-s> :call StripTrailingWhite() \| retab \| w<CR>
 map! <C-s> :call StripTrailingWhite() \| retab \| w<CR>
 imap <C-s> <C-\><C-O><C-s>
+
+command ToUnix %s/\r$//
 
 " ========== MOVE, SEARCH & PATTERNS ===========================
 set ignorecase  " ignore case when searching

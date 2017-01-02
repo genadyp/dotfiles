@@ -346,7 +346,7 @@ Plugin 'scrooloose/syntastic'
   " To disable Errors Signs:
   " let g:syntastic_enable_signs = 0
 
-  let g:syntastic_html_tidy_exec = '/home/genadyp/Downloads/App/HtmlTidy/tidy/bin/tidy'
+  let g:syntastic_html_tidy_exec = '/usr/bin/tidy'
   let g:syntastic_java_checkstyle_classpath = '/home/genadyp/Downloads/App/JavaCheckstyle/checkstyle-5.5/checkstyle-5.5-all.jar'
   "let let g:syntastic_ruby_exec = 'ruby2.1.1'
   let g:syntastic_tex_chktex_showmsgs = 0
