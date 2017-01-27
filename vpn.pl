@@ -3,6 +3,8 @@
 use v5.14;
 use Expect;
 
+# NOTE run as sudo
+
 my $command = "openvpn";
 my @params = ("--config", "/home/genadyp/bin/OpenVPN/client.ovpn");
 
