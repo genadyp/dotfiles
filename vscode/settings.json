@@ -1,0 +1,16 @@
+{
+    "vim.disableAnnoyingNeovimMessage": true,
+    "vim.easymotion": true,
+    "vim.hlsearch": true,
+    "vim.visualstar": true,
+    "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
+    "files.autoSave": "afterDelay",
+    "editor.lineNumbers": "relative",
+    "editor.rulers": [
+        100
+    ],
+    "editor.minimap.enabled": false,
+    "vim.handleKeys": {
+        "<C-k>": false
+    }
+}
