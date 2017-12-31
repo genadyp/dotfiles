@@ -78,8 +78,9 @@ cdl() {
 }
 
 total() {
-  du -ch "${@}" | grep total
-  #du -ch "$@" | grep total
+  # other option
+  # du -ch "${@}" | grep total
+  du -sh
 }
 
 h() {
