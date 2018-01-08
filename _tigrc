@@ -1,3 +1,4 @@
+# forked from https://github.com/sttts/tigrc
 # settings
 set commit-order = topo
 set diff-highlight = true
