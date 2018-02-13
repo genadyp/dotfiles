@@ -1,0 +1,129 @@
+[global_config]
+[keybindings]
+  split_horiz = <Primary><Shift>o
+  split_vert = <Primary><Shift>e
+[layouts]
+  [[default]]
+    [[[child1]]]
+      parent = window0
+      profile = default
+      type = Terminal
+    [[[window0]]]
+      parent = ""
+      type = Window
+  [[wisdom-stone]]
+    [[[child0]]]
+      fullscreen = False
+      last_active_window = True
+      maximised = True
+      order = 0
+      parent = ""
+      position = 1920:24
+      size = 1920, 1176
+      title = /bin/bash
+      type = Window
+    [[[child1]]]
+      active_page = 2
+      labels = None, None, None
+      last_active_term = 3f9be14f-af9b-4069-bfd2-2bfb8439cde7, 09ad47d5-a2d4-42eb-a607-fd67226b97b8, f89e4233-8b1d-4965-9f7d-c9af20c36f93
+      order = 0
+      parent = child0
+      type = Notebook
+    [[[child12]]]
+      order = 2
+      parent = child1
+      position = 957
+      ratio = 0.5
+      type = HPaned
+    [[[child2]]]
+      order = 0
+      parent = child1
+      position = 957
+      ratio = 0.5
+      type = HPaned
+    [[[child3]]]
+      order = 0
+      parent = child2
+      position = 571
+      ratio = 0.5
+      type = VPaned
+    [[[child6]]]
+      order = 1
+      parent = child2
+      position = 571
+      ratio = 0.5
+      type = VPaned
+    [[[child9]]]
+      order = 1
+      parent = child1
+      position = 957
+      ratio = 0.5
+      type = HPaned
+    [[[terminal10]]]
+      command = ""
+      directory = /home/genadyp/bin/elasticsearch/es-wscns
+      order = 0
+      parent = child9
+      profile = default
+      type = Terminal
+      uuid = 18bd359e-b792-430e-af1a-5627abe70ccf
+    [[[terminal11]]]
+      command = ""
+      directory = /home/genadyp/bin/kibana/kibana-5.1.2/
+      order = 1
+      parent = child9
+      profile = default
+      type = Terminal
+      uuid = 09ad47d5-a2d4-42eb-a607-fd67226b97b8
+    [[[terminal13]]]
+      directory = /home/genadyp/dev/wisdom-stone/ws_cns/
+      order = 0
+      parent = child12
+      profile = default
+      type = Terminal
+      uuid = f89e4233-8b1d-4965-9f7d-c9af20c36f93
+    [[[terminal14]]]
+      directory = /home/genadyp/dev/wisdom-stone/ws_cns/
+      order = 1
+      parent = child12
+      profile = default
+      type = Terminal
+      uuid = 4d3f58d4-3c4b-46c4-a1c8-41c86530fa4e
+    [[[terminal4]]]
+      directory = /home/genadyp/dev/wisdom-stone/ws_gateway/
+      order = 0
+      parent = child3
+      profile = default
+      type = Terminal
+      uuid = 3f9be14f-af9b-4069-bfd2-2bfb8439cde7
+    [[[terminal5]]]
+      directory = /home/genadyp/dev/wisdom-stone/ws_gateway/
+      order = 1
+      parent = child3
+      profile = default
+      type = Terminal
+      uuid = 8909a46e-5601-45b5-9dc0-741acd481d6f
+    [[[terminal7]]]
+      command = ""
+      directory = /home/genadyp/dev/wisdom-stone/ws_ui/
+      order = 0
+      parent = child6
+      profile = default
+      type = Terminal
+      uuid = 9e6e5962-58b8-4155-ac9f-67e370926f7a
+    [[[terminal8]]]
+      command = ""
+      directory = /home/genadyp/dev/wisdom-stone/ws_ui/
+      order = 1
+      parent = child6
+      profile = default
+      type = Terminal
+      uuid = ca411104-f024-443b-bb31-b7bfe154e8ce
+[plugins]
+[profiles]
+  [[default]]
+    background_color = "#300a24"
+    background_image = None
+    foreground_color = "#ffffff"
+    login_shell = True
+    scrollback_lines = 5000
