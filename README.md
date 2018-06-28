@@ -4,6 +4,9 @@ dotfiles
 ```bash
 # perl Devel::REPL
 ln -sf ~/dotfiles/_re.pl/ ~/.re.pl
+
+# Openbox
+ln -sf ~/dotfiles/openbox ~/.config/openbox
 ```
 
 
