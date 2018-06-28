@@ -1,7 +1,7 @@
 dotfiles
 ========
 
-```
+```bash
 # perl Devel::REPL
 ln -sf ~/dotfiles/_re.pl/ ~/.re.pl
 ```
