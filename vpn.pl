@@ -3,15 +3,17 @@
 use v5.14;
 use Expect;
 
-# NOTE run as sudo
+# NOTE run as sudo!!!
 
-my $command = "openvpn";
-my @params = ("--config", "/home/genadyp/bin/OpenVPN/client.ovpn");
-
-
-my $timeout = 10;  # in sec
+# Define following properties!!!
+my $config_path = undef;  # set the ovpn file path here
 my $user = undef;  # set your username here
 my $pass = undef;  # set your password here
+
+my $command = "openvpn";
+my @params = ("--config", $config_path);
+
+my $timeout = 10;  # in sec
 
 sub run {
   my $exp = Expect->spawn($command, @params);
