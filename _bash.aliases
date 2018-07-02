@@ -94,3 +94,9 @@ alias zathura='env GTK_MODULES= /usr/bin/zathura'
 
 alias open='xdg-open 2>/dev/null'
 
+# docker
+alias docker_stop='docker stop $(docker ps -q)'
+alias docker_kill='docker kill $(docker ps -q)'
+alias docker_rm='docker rm $(docker ps -a -q)'
+
+alias 2epub='zip -rX "../$(basename "$(realpath .)").epub" mimetype $(ls|xargs echo|sed 's/mimetype//g')'

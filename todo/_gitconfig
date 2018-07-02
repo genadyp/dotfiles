@@ -1,0 +1,53 @@
+[user]
+	email = azer@kodfabrik.com
+	name = E.Azer Koçulu
+
+[alias]
+  t-server              = utf8
+        pb              = pull
+        p               = pull --rebase origin master
+        u               = push origin master
+        ub              = push 
+        st              = status
+        ci              = commit
+        co              = checkout
+        br              = branch
+        l               = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+        fix             = commit --amend -C HEAD
+        r              = remote --verbose
+        staged          = diff --cached
+        unstage         = reset HEAD
+        undo-commit     = reset --soft HEAD^
+        reset-master    = reset --hard origin/master
+        reset-staging   = reset --hard origin/staging
+        tree            = log --graph --pretty=format:'%Cred%h%Creset %C(yellow)%an%d%Creset %s %Cgreen(%cr)%Creset' --date=relative
+
+[merge]
+  tool = opendiff
+
+[branch]
+        autosetuprebase = always
+
+[color]
+        ui = auto
+  [color "branch"]
+        current = yellow reverse
+        local = yellow
+        remote = green
+  [color "diff"]
+        meta = yellow bold
+        frag = magenta bold
+        old = red bold
+        new = green bold
+  [color "status"]
+        added = yellow
+        changed = green
+        untracked = cyan
+[github]
+	user = azer
+[core]
+	editor = /usr/bin/vim
+	pager = diff-so-fancy | less --tabs=4 -RFX
+
+[help]
+  autocorrect = 1
