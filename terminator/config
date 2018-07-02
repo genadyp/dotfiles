@@ -60,7 +60,7 @@
       ratio = 0.5
       type = HPaned
     [[[terminal10]]]
-      command = ""
+      command = ./bin/elasticsearch
       directory = /home/genadyp/bin/elasticsearch/es-wscns
       order = 0
       parent = child9
@@ -68,7 +68,7 @@
       type = Terminal
       uuid = 18bd359e-b792-430e-af1a-5627abe70ccf
     [[[terminal11]]]
-      command = ""
+      command = ./bin/kibana
       directory = /home/genadyp/bin/kibana/kibana-5.1.2/
       order = 1
       parent = child9
