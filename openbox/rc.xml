@@ -363,6 +363,12 @@
       </action>
     </keybind>
 
+    <keybind key="C-A-l">
+      <action name="Execute">
+        <command>gnome-screensaver-command -l</command>
+      </action>
+    </keybind>
+
     <!-- Launch scrot when Print is pressed -->
     <!-- <keybind key="Print">
       <action name="Execute"><command>scrot</command></action>
