@@ -118,3 +118,8 @@ function top_dirs() {
   fi 
   du -Sh $2 | sort -rh | head $number
 }
+
+function kblayout {
+  # setxkbmap -query | grep layout | sed -e 's/layout:[[:space:]]*//'
+  setxkbmap -v | awk -F "+" '/symbols/ {print $2}'
+}
