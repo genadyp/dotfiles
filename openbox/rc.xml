@@ -321,6 +321,49 @@
         <direction>down</direction>
       </action>
     </keybind>
+
+  <!-- resize windows with Alt + Direction -->
+    <keybind key="A-Right">
+      <action name="GrowToEdgeEast"/>
+    </keybind>
+    <keybind key="A-Left">
+      <action name="GrowToEdgeWest"/>
+    </keybind>
+    <keybind key="A-Down">
+      <action name="GrowToEdgeSouth"/>
+    </keybind>
+    <keybind key="A-Up">
+      <action name="GrowToEdgeNorth"/>
+    </keybind>
+
+    <!-- move windows with Ctrl + Direction -->
+    <keybind key="C-Right"><action name="MoveResizeTo"><x>-0</x></action></keybind>
+    <keybind key="C-Left"><action name="MoveResizeTo"><x>0</x></action></keybind>
+    <keybind key="C-Down"><action name="MoveResizeTo"><y>-0</y></action></keybind>
+    <keybind key="C-Up"><action name="MoveResizeTo"><y>0</y></action></keybind>
+
+   <keybind key="W-S-Up">
+      <action name="Maximize"/>
+   </keybind> 
+
+   <keybind key="W-S-Down">
+      <action name="Unmaximize"/>
+   </keybind> 
+
+    <!-- move the window to the first monitor -->
+    <keybind key="W-1">
+      <action name="MoveResizeTo">
+        <monitor>1</monitor>
+      </action>
+    </keybind>
+
+    <!-- move the window to the second monitor -->
+    <keybind key="W-2">
+      <action name="MoveResizeTo">
+        <monitor>2</monitor>
+      </action>
+    </keybind>
+
     <!-- Keybindings for running applications -->
     <keybind key="W-e">
       <action name="Execute">
