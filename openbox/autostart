@@ -26,4 +26,4 @@ google-chrome &
 clipit &
 sleep 2s && nm-applet &
 volti &
-
+~/dotfiles/conky/conky
