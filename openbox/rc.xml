@@ -323,16 +323,16 @@
     </keybind>
 
   <!-- resize windows with Alt + Direction -->
-    <keybind key="A-Right">
+    <keybind key="W-A-Right">
       <action name="GrowToEdgeEast"/>
     </keybind>
-    <keybind key="A-Left">
+    <keybind key="W-A-Left">
       <action name="GrowToEdgeWest"/>
     </keybind>
-    <keybind key="A-Down">
+    <keybind key="W-A-Down">
       <action name="GrowToEdgeSouth"/>
     </keybind>
-    <keybind key="A-Up">
+    <keybind key="W-A-Up">
       <action name="GrowToEdgeNorth"/>
     </keybind>
 
@@ -468,7 +468,7 @@
         <y>-0</y>
       </action>
     </keybind>
-    <keybind key="A-i">
+    <keybind key="W-q">
       <action name="UnmaximizeFull"/>
       <action name="MoveResizeTo">
         <width>50%</width>
@@ -479,7 +479,7 @@
         <y>0</y>
       </action>
     </keybind>
-    <keybind key="A-o">
+    <keybind key="W-w">
       <action name="UnmaximizeFull"/>
       <action name="MoveResizeTo">
         <width>50%</width>
@@ -490,7 +490,7 @@
         <y>0</y>
       </action>
     </keybind>
-    <keybind key="A-k">
+    <keybind key="W-a">
       <action name="UnmaximizeFull"/>
       <action name="MoveResizeTo">
         <width>50%</width>
@@ -501,7 +501,7 @@
         <y>-0</y>
       </action>
     </keybind>
-    <keybind key="A-l">
+    <keybind key="W-s">
       <action name="UnmaximizeFull"/>
       <action name="MoveResizeTo">
         <width>50%</width>
@@ -511,6 +511,12 @@
         <x>-0</x>
         <y>-0</y>
       </action>
+    </keybind>
+    <keybind key="W-A-Up"> 
+      <action name="ToggleMaximize"/>
+    </keybind>
+    <keybind key="W-A-Down">
+      <action name="Iconify"/>
     </keybind>
   </keyboard>
 

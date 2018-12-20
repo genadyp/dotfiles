@@ -69,7 +69,7 @@ function pass {
 }
 
 calc() {
-  echo ${*} | bc
+  echo "scale=4;${*}" | bc
 }
 
 cdl() {

@@ -1,12 +1,14 @@
 #!/bin/bash
 
 COUNT=$(pgrep -c conky)
-echo $COUNT
+CONKY_DIR=$(dirname $0)
+
 if [[ $COUNT -ne 1 ]]; then
     echo "Hi"
     killall -q conky
 else
     echo "bye"
 fi
-conky -c conkyrc
+
+conky -c $CONKY_DIR/conkyrc
 exit 0
