@@ -1,0 +1,62 @@
+{
+    // Use IntelliSense to find out which attributes exist for node debugging
+    // Use hover for the description of the existing attributes
+    // For further information visit https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Launch Program",
+            "type": "node",
+            "request": "launch",
+            "runtimeArgs": [
+                "--harmony"
+            ],
+            "program": "${workspaceRoot}/app.js",
+            "cwd": "${workspaceRoot}",
+            "env": {
+                "NODE_ENV": "dev",
+                "LOG_LEVEL": "info",
+                "BACKEND": "localhost"
+                //,"LOGIN":"disabled"
+              
+            }
+        },
+        {
+            "name": "Launch File",
+            "type": "node",
+            "request": "launch",
+            "runtimeArgs": [
+                "--harmony"
+            ],
+            "program": "${file}",
+            "cwd": "${workspaceRoot}",
+            "env": {
+                "NODE_ENV": "dev",
+                "LOG_LEVEL": "info",
+                "BACKEND": "localhost"
+            }
+        },
+        {
+            "name": "Attach to Process",
+            "type": "node",
+            "request": "attach",
+            "port": 9229
+        },
+        {
+            "name": "Unit tests",
+            "type": "node",
+            "request": "launch",
+            "runtimeArgs": [
+                "--harmony"
+            ],
+            "program": "${workspaceRoot}/node_modules/mocha/bin/_mocha",
+            "cwd": "${workspaceRoot}",
+            "env": {
+                "NODE_ENV": "dev",
+                "LOGIN": "enabled"
+            },
+            "stopOnEntry": false,
+            "runtimeExecutable": null
+        }
+    ]
+}
