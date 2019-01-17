@@ -76,28 +76,28 @@
       type = Terminal
       uuid = 09ad47d5-a2d4-42eb-a607-fd67226b97b8
     [[[terminal13]]]
-      directory = /home/genadyp/dev/wisdom-stone/ws_cns/
+      directory = /home/genadyp/dev/ws-cns-ng/ws_NG_Investigation_Service
       order = 0
       parent = child12
       profile = default
       type = Terminal
       uuid = f89e4233-8b1d-4965-9f7d-c9af20c36f93
     [[[terminal14]]]
-      directory = /home/genadyp/dev/wisdom-stone/ws_cns/
+      directory = /home/genadyp/dev/ws-cns-ng/ws-cns-ng/ws_NG_wscns
       order = 1
       parent = child12
       profile = default
       type = Terminal
       uuid = 4d3f58d4-3c4b-46c4-a1c8-41c86530fa4e
     [[[terminal4]]]
-      directory = /home/genadyp/dev/wisdom-stone/ws_gateway/
+      directory = /home/genadyp/dev/ws-cns-ng/ws_NG_gateway
       order = 0
       parent = child3
       profile = default
       type = Terminal
       uuid = 3f9be14f-af9b-4069-bfd2-2bfb8439cde7
     [[[terminal5]]]
-      directory = /home/genadyp/dev/wisdom-stone/ws_gateway/
+      directory = /home/genadyp/dev/ws-cns-ng/ws_NG_gateway
       order = 1
       parent = child3
       profile = default
@@ -113,7 +113,7 @@
       uuid = 9e6e5962-58b8-4155-ac9f-67e370926f7a
     [[[terminal8]]]
       command = ""
-      directory = /home/genadyp/dev/wisdom-stone/ws_ui/
+      directory = /home/genadyp/dev/ws-cns-ng/ws_NG_gateway
       order = 1
       parent = child6
       profile = default
