@@ -105,7 +105,7 @@
       uuid = 8909a46e-5601-45b5-9dc0-741acd481d6f
     [[[terminal7]]]
       command = ""
-      directory = /home/genadyp/dev/wisdom-stone/ws_ui/
+      directory = /home/genadyp/dev/ws-cns-ng/ws_NG_gateway
       order = 0
       parent = child6
       profile = default
