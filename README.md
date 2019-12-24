@@ -19,7 +19,7 @@ ln -sf ~/dotfiles/openbox ~/.config/openbox
 
 -----
 
-# Visual Studio Code
+#### Visual Studio Code
 
 Merge provided settings file with `HOME/.config/Code/User/settings.json`
 
