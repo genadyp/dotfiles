@@ -25,6 +25,14 @@ Merge provided settings file with `HOME/.config/Code/User/settings.json`
 
 -----
 
+#### zathura
+
+```bash
+ln -sf ~/zathura/zathurarc ~/.config/zathura/zathurarc 
+```
+
+-----
+
 #### wego
 
 http://zenway.ru/page/wego
