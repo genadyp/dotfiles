@@ -1,18 +1,32 @@
-dotfiles
-========
+### dotfiles
+
+-----
+
+#### Perl Repl
 
 ```bash
 # perl Devel::REPL
 ln -sf ~/dotfiles/_re.pl/ ~/.re.pl
+````
 
-# Openbox
+-----
+
+#### Openbox
+
+```bash
 ln -sf ~/dotfiles/openbox ~/.config/openbox
 ```
 
+-----
 
+# Visual Studio Code
 
-wego
-----
+Merge provided settings file with `HOME/.config/Code/User/settings.json`
+
+-----
+
+#### wego
+
 http://zenway.ru/page/wego
 
 https://github.com/schachmat/wego
