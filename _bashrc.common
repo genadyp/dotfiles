@@ -5,16 +5,16 @@ export HISTFILESIZE=10000
 # Set vi mode
 #set -o vi
 
-if [ -f ~/dotfiles/_term_colors ]; then
-  . ~/dotfiles/_term_colors
+if [ -f ~/dotfiles/bash/term_colors ]; then
+  . ~/dotfiles/bash/term_colors
 fi
 
-if [ -f ~/dotfiles/_bash.aliases ]; then
-  . ~/dotfiles/_bash.aliases
+if [ -f ~/dotfiles/bash/aliases ]; then
+  . ~/dotfiles/bash/aliases
 fi
 
-if [ -f ~/dotfiles/_bash.functions ]; then
-  source ~/dotfiles/_bash.functions
+if [ -f ~/dotfiles/bash/functions ]; then
+  source ~/dotfiles/bash/functions
 fi
 
 # auto-completion
@@ -24,6 +24,5 @@ fi
 if [ -f ~/dotfiles/completion/ssh-completion ]; then
   source ~/dotfiles/completion/ssh-completion
 fi
-
 
 
