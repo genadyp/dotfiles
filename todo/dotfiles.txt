@@ -1,0 +1,61 @@
+[01;34m.[00m
+├── [01;34mbash[00m
+│   ├── aliases
+│   ├── common
+│   ├── functions
+│   ├── profile
+│   └── term_colors
+├── [01;34mcompletion[00m
+│   ├── git-completion.bash
+│   └── ssh-completion
+├── [01;34mconky[00m
+│   ├── [01;32mconky[00m
+│   └── conkyrc
+├── [01;34mgames[00m
+│   └── [01;32mfreeciv.rus.sh[00m
+├── [01;34mgit[00m
+│   └── gitconfig
+├── [01;32mgksudo_synaptic[00m
+├── [01;34mgradle[00m
+│   └── gradle.properties
+├── [01;34midea[00m
+│   └── ideavimrc
+├── [01;34mopenbox[00m
+│   ├── autostart
+│   ├── environment
+│   ├── menu.xml
+│   └── rc.xml
+├── [01;34mperl[00m
+│   └── [01;34mre.pl[00m
+│       └── repl.rc
+├── README.md
+├── [01;34mterminator[00m
+│   └── config
+├── [01;34mtodo[00m
+│   ├── _bash_functions.deprecated
+│   ├── _bashrc
+│   ├── _gitconfig
+│   ├── Makefile
+│   ├── _mocp
+│   ├── prompt
+│   ├── _tigrc
+│   ├── _tmux.conf
+│   ├── _tmux.init
+│   ├── _uzbl
+│   └── _wegorc
+├── [01;34mvim[00m
+│   ├── [01;32mvimrc[00m
+│   ├── vimrc.bundles
+│   ├── vimrc.bundles.deprecated
+│   └── vimrc.bundles.new
+├── [01;32mvpn.pl[00m
+├── [01;34mvscode[00m
+│   ├── launch.json
+│   ├── settings.json
+│   └── tasks.json
+├── [01;34mwget[00m
+│   └── _wgetrc
+└── [01;34mzathura[00m
+    └── zathurarc
+
+16 directories, 42 files
