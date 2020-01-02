@@ -129,3 +129,6 @@ function killp {
   kill `lsof -t -i:$1`
 }
 
+function cviewer {
+    pygmentize $1 | less -r
+}
