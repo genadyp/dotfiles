@@ -1,12 +1,15 @@
 {
-    "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
-    
-    "files.autoSave": "afterDelay",
-    "files.autoSaveDelay": 2000,
-    "files.associations": {
-        "_bashrc": "shellscript"
-    },
+    "workbench.colorTheme": "Darcula - WebStorm Edition",
 
+    "terminal.integrated.rendererType": "dom",
+
+    "files.autoSave": "off",
+    "files.autoSaveDelay": 2000,
+    "files.exclude": {
+        "**/__pycache__/": true,
+        "**/.pytest_cache/": true
+    },
+    
     "vim.easymotion": true,
     "vim.hlsearch": true,
     "vim.visualstar": true,
@@ -14,7 +17,7 @@
         "<C-k>": false
     },
     "vim.sneak": true,
-    "vim.vimrc.enable": true,
+    // "vim.vimrc.enable": true,
     "vim.replaceWithRegister": true,
     "vim.camelCaseMotion.enable": true,
 
@@ -23,4 +26,11 @@
     "editor.rulers": [
             100
     ],
+    "editor.suggestSelection": "first",
+    
+    "cSpell.userWords": [
+        "genadyp"
+    ],
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "python.jediEnabled": false,
 }
