@@ -103,3 +103,17 @@ alias 2epub='zip -rX "../$(basename "$(realpath .)").epub" mimetype $(ls|xargs e
 
 alias bc='bc -l'
 
+alias path='echo -e ${PATH//:/\\n}'
+alias now='date +"%T"'
+alias nowtime=now
+alias nowdate='date +"%d-%m-%Y"'
+
+alias ports='netstat -tulanp'
+
+# update on one command
+#alias update='sudo apt-get update && sudo apt-get upgrade'
+
+# distro specific  - Debian / Ubuntu and friends #
+# install with apt-get
+#alias apt-get="sudo apt-get"
+#alias updatey="sudo apt-get --yes"
